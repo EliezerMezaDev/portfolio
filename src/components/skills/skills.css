@@ -1,0 +1,85 @@
+.skills__container {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.skill__wrapper {
+  position: relative;
+  padding: 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-content: flex-start;
+}
+
+.skill__wrapper::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  background-color: var(--c-main-lite-o10);
+  z-index: 1;
+
+  transition: 0.3s;
+}
+
+.skill__wrapper:hover::after {
+  width: 100%;
+}
+
+.skill__item {
+  color: var(--c-black);
+  font-size: var(--f-size-large);
+
+  display: flex;
+  align-items: center;
+}
+
+.skill__icon {
+  margin-right: var(--m-botton-0-5);
+  color: var(--c-main);
+  font-size: var(--f-size-big);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ----? BREAKPOINTS ?---- */
+@media screen and (max-width: 992px) {
+  .skills__container {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .skill__item {
+    font-size: var(--f-size-xnormal);
+  }
+  .skill__icon {
+    font-size: var(--f-size-xlarge);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .skill__wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .skill__wrapper {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .skill__wrapper {
+    width: 100%;
+  }
+}
