@@ -13,13 +13,13 @@ export const OptImg = ({
     <picture>
       <source
         type="image/avif"
-        srcSet={`${RELATIVE_PATH}/${src}/${file}.avif`}
+        srcSet={`${RELATIVE_PATH}${src}/${file}.avif`}
       />
       <source
         type="image/webp"
-        srcSet={`${RELATIVE_PATH}/${src}/${file}.webp`}
+        srcSet={`${RELATIVE_PATH}${src}/${file}.webp`}
       />
-      <img src={`${src}${file}.jpg`} alt={alt} />
+      <img src={`${RELATIVE_PATH}${src}/${file}.jpg`} alt={alt} />
     </picture>
   );
 };
