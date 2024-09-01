@@ -29,9 +29,9 @@ export const Skills = () => {
               <>
                 {sCurrent.length > 0 && (
                   <ul className="skill__wrapper bordered">
-                    {sCurrent.map((s: Skill) => {
+                    {sCurrent.map((s: Skill, index) => {
                       return (
-                        <li className="skill__item">
+                        <li key={index} className="skill__item">
                           <span className="skill__icon">{s.icon}</span>
                           {s.label}
                         </li>

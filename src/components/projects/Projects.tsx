@@ -38,9 +38,10 @@ export const Projects = () => {
         <div className="projects__container container grid">
           <ul className="projects__categories">
             {PROJECT_CATEGORIES &&
-              PROJECT_CATEGORIES.map((c: ProjectCategory) => {
+              PROJECT_CATEGORIES.map((c: ProjectCategory, index) => {
                 return (
                   <button
+                    key={index}
                     className={
                       currentCategory === c
                         ? "projects__category bordered current-category"
@@ -60,7 +61,11 @@ export const Projects = () => {
                 return (
                   <article className="project bordered" key={index}>
                     <div className="project__image">
-                      <OptImg src={project.image} alt={`project_${index}`} />
+                      <OptImg
+                        src={project.image.src}
+                        file={project.image.file}
+                        alt={`project_${index}`}
+                      />
                     </div>
 
                     <div className="project__data">

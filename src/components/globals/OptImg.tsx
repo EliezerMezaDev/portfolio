@@ -1,9 +1,25 @@
-export const OptImg = ({ src, alt }: { src: string; alt: string }) => {
+export const OptImg = ({
+  src,
+  file,
+  alt,
+}: {
+  src: string;
+  file: string;
+  alt: string;
+}) => {
+  const RELATIVE_PATH = "";
+
   return (
     <picture>
-      <source type="image/avif" srcSet={`${src}.avif`} />
-      <source type="image/webp" srcSet={`${src}.webp`} />
-      <img src={`${src}.jpg`} alt={alt} />
+      <source
+        type="image/avif"
+        srcSet={`${RELATIVE_PATH}/${src}/${file}.avif`}
+      />
+      <source
+        type="image/webp"
+        srcSet={`${RELATIVE_PATH}/${src}/${file}.webp`}
+      />
+      <img src={`${src}${file}.jpg`} alt={alt} />
     </picture>
   );
 };

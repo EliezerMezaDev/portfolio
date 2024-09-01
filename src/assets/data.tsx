@@ -57,7 +57,7 @@ export const SOCIAL_LINK: Link[] = [
 export const PROJECTS: Project[] = [
   {
     label: "example 1",
-    image: "/src/assets/images/projects/asset1",
+    image: { src: "images/projects", file: "asset1" },
     category: "Desarrollo web",
     url: {
       github: "",

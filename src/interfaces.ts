@@ -6,12 +6,16 @@ export type Link = {
   url: string;
 };
 
+export type Image = {
+  src: string;
+  file: string;
+};
 
 export type ProjectCategory = "All" | "Desarrollo web" | "Diseño" | "Practica";
 
 export type Project = {
   label: string;
-  image: string;
+  image: Image;
   category: ProjectCategory;
   url: {
     github: string;
@@ -23,7 +27,7 @@ export type SkillType = "frontend" | "backend" | "database" | "desing";
 
 export type Skill = {
   icon?: ReactElement;
-  img?: string;
+  img?: Image;
   label: string;
   type: SkillType;
 };

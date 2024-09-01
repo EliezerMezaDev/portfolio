@@ -11,7 +11,7 @@ export const Home = () => {
         <div className="home__container container grid">
           <div className="home__content grid">
             <div className="home__img">
-              <OptImg src="/src/assets/images/me/me" alt="me" />
+              <OptImg src="images/me" file="me" alt="me" />
             </div>
 
             <Data />
