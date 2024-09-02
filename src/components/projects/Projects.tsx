@@ -35,6 +35,10 @@ export const Projects = () => {
           Algunos proyectos en lo que he participado
         </h3>
 
+        {/* 
+        
+        */}
+
         <div className="projects__container container grid">
           <ul className="projects__categories">
             {PROJECT_CATEGORIES &&
@@ -73,11 +77,17 @@ export const Projects = () => {
                       <h4 className="project__title"> {project.label} </h4>
 
                       <span className="project__links">
-                        <a href={project.url.github}>
+                        <a
+                          title={`redirect to ${project.url.github}`}
+                          href={project.url.github}
+                        >
                           <FaGithub />
                         </a>
 
-                        <a href={project.url.github}>
+                        <a
+                          title={`redirect to ${project.url.demo}`}
+                          href={project.url.demo}
+                        >
                           <MdDesktopWindows />
                         </a>
                       </span>

@@ -18,7 +18,6 @@ import {
 
 import { SiPhp, SiSupabase, SiTailwindcss } from "react-icons/si";
 import { BiLogoPostgresql } from "react-icons/bi";
-import { IoSend } from "react-icons/io5";
 
 export const NAV_LINK: Link[] = [
   {
@@ -60,8 +59,8 @@ export const PROJECTS: Project[] = [
     image: { src: "images/projects", file: "asset1" },
     category: "Desarrollo web",
     url: {
-      github: "",
-      demo: "",
+      github: "/",
+      demo: "/",
     },
   },
 ];
