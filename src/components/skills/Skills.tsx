@@ -22,26 +22,28 @@ export const Skills = () => {
         </h3>
 
         <div className="skills__container container grid">
-          {["frontend", "backend", "database", "desing"].map((type: string) => {
-            const sCurrent: Skill[] = getSkillByType(type);
+          {["frontend", "backend", "database", "desing"].map(
+            (type: string, index) => {
+              const sCurrent: Skill[] = getSkillByType(type);
 
-            return (
-              <>
-                {sCurrent.length > 0 && (
-                  <ul className="skill__wrapper bordered">
-                    {sCurrent.map((s: Skill, index) => {
-                      return (
-                        <li key={index} className="skill__item">
-                          <span className="skill__icon">{s.icon}</span>
-                          {s.label}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
-              </>
-            );
-          })}
+              return (
+                <>
+                  {sCurrent.length > 0 && (
+                    <ul key={index} className="skill__wrapper bordered">
+                      {sCurrent.map((s: Skill, skillIndex) => {
+                        return (
+                          <li key={skillIndex} className="skill__item">
+                            <span className="skill__icon">{s.icon}</span>
+                            {s.label}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
+                </>
+              );
+            }
+          )}
         </div>
       </section>
     </>

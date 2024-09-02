@@ -11,10 +11,11 @@ export const Social = () => {
         SOCIAL_LINK.map((l: Link, index) => {
           return (
             <a
+              key={index}
+              title={`redirec to ${l.url}`}
               href={l.url}
               className="floatingbar__icon"
               target="_blank"
-              key={index}
             >
               {l.icon}
             </a>

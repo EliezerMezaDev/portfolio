@@ -27,8 +27,12 @@
   --c-white-o30: #f5f5f54d;
 
   --c-white-alt: #ebe9f1ff;
-  --c-white-o60: #ebe9f199;
-  --c-white-o30: #ebe9f14d;
+  --c-white-alt-o60: #ebe9f199;
+  --c-white-alt-o30: #ebe9f14d;
+
+  --c-white-dark: #d9d3e9ff;
+  --c-white-dark-o60: #d9d3e999;
+  --c-white-dark-o30: #d9d3e94d;
 
   --c-black: #0a0615ff;
   --c-black-o60: #0a061599;
@@ -215,12 +219,12 @@ button {
 .floatingbar::before {
   content: "";
   position: absolute;
-  left: 11px;
+  left: 12px;
   bottom: -4rem;
 
-  width: 3px;
+  width: 2px;
   height: 4rem;
-  background-color: var(--c-main-lite);
+  background-color: var(--c-main-alt-o60);
 }
 
 .floatingbar__social {
@@ -238,7 +242,7 @@ button {
 
   font-size: var(--f-size-xnormal);
   letter-spacing: 1px;
-  color: var(--c-main-lite);
+  color: var(--c-main-alt-o60);
 
   transform: rotate(-90deg);
   transition: 0.3s;
@@ -251,7 +255,7 @@ button {
 
 .floatingbar__icon {
   font-size: 1.75rem;
-  color: var(--c-main-lite);
+  color: var(--c-main-alt-o60);
   transition: 0.3s;
 }
 
