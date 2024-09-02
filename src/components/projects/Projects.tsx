@@ -40,17 +40,18 @@ export const Projects = () => {
             {PROJECT_CATEGORIES &&
               PROJECT_CATEGORIES.map((c: ProjectCategory, index) => {
                 return (
-                  <button
-                    key={index}
-                    className={
-                      currentCategory === c
-                        ? "projects__category bordered current-category"
-                        : "projects__category bordered"
-                    }
-                    onClick={() => selectCategory(c)}
-                  >
-                    {c}
-                  </button>
+                  <li key={index}>
+                    <button
+                      className={
+                        currentCategory === c
+                          ? "projects__category bordered current-category"
+                          : "projects__category bordered"
+                      }
+                      onClick={() => selectCategory(c)}
+                    >
+                      {c}
+                    </button>
+                  </li>
                 );
               })}
           </ul>
@@ -69,7 +70,7 @@ export const Projects = () => {
                     </div>
 
                     <div className="project__data">
-                      <h5 className="project__title"> {project.label} </h5>
+                      <h4 className="project__title"> {project.label} </h4>
 
                       <span className="project__links">
                         <a href={project.url.github}>

@@ -16,21 +16,20 @@ function App() {
   return (
     <>
       <div id="container-all" className="container-all">
-        <Social />
-        <Mail />
-
         <Header />
 
         {/* ?---- Sections ----? */}
 
         <div className="container-all__wrapper">
+          <Home />
+          <Skills />
+          <Projects />
+          <Contact />
 
-        <Home />
-        <Skills />
-        <Projects />
-        <Contact />
+          <Footer />
 
-        <Footer />
+          <Social />
+          <Mail />
         </div>
       </div>
     </>

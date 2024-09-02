@@ -30,6 +30,7 @@ export const Header = () => {
                 return (
                   <li className="nav__item" key={index}>
                     <a
+                      title={`redirect to ${l.url}`}
                       href={l.url}
                       className={`${
                         l.url === "#home"
