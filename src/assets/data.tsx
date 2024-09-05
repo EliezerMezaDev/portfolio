@@ -49,18 +49,18 @@ export const SOCIAL_LINK: Link[] = [
   },
   {
     icon: <FaGithub />,
-    url: "https://github.com/EliezerMezaDev/",
+    url: "https://eliezermezadev.github.io/TheCocktailMenu/",
   },
 ];
 
 export const PROJECTS: Project[] = [
   {
-    label: "example 1",
-    image: { src: "images/projects", file: "asset1" },
+    label: "The cocktail menu",
+    image: { src: "images/projects", file: "the_cocktail_menu" },
     category: "Desarrollo web",
     url: {
-      github: "/",
-      demo: "/",
+      github: "https://github.com/EliezerMezaDev/TheCocktailMenu",
+      demo: "https://eliezermezadev.github.io/TheCocktailMenu",
     },
   },
 ];
