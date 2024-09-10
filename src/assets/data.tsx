@@ -63,6 +63,16 @@ export const PROJECTS: Project[] = [
       demo: "https://eliezermezadev.github.io/TheCocktailMenu",
     },
   },
+
+  {
+    label: "NotesApp",
+    image: { src: "images/projects", file: "notes_app" },
+    category: "Desarrollo web",
+    url: {
+      github: "https://github.com/EliezerMezaDev/NotesApp",
+      demo: "https://eliezermezadev.github.io/NotesApp",
+    },
+  },
 ];
 
 export const PROJECT_CATEGORIES: ProjectCategory[] = [
