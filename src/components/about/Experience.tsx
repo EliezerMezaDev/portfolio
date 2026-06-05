@@ -1,31 +1,13 @@
 "use client"
-import Hr from "@components/ui/Hr"
 import { motion, AnimatePresence } from "framer-motion"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Title from "./title"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
+import { Experience as ExperienceData } from "@lib/types"
 
-interface Experience {
-  startDate: string
-  endDate: string
-  company: string
-  site?: string
-  position: string
-  type: string
-  location: string
-  tech: string[]
+interface ExperienceWithTechNames extends ExperienceData {
   techNames: string[]
-  content: string
-}
-
-type ExperiencesResponse = Omit<Experience, "techNames"> & {
-  techNames?: string[]
-}
-
-async function getAllExperiences() {
-  const { getAllExperiencesServer } = await import("@lib/experiences-action")
-  return getAllExperiencesServer()
 }
 
 function ExperienceCard({
@@ -33,7 +15,7 @@ function ExperienceCard({
   index,
   isEven,
 }: {
-  experience: Experience
+  experience: ExperienceWithTechNames
   index: number
   isEven: boolean
 }) {
@@ -41,16 +23,13 @@ function ExperienceCard({
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
       transition={{ delay: index * 0.2, duration: 0.6 }}
       className={`group relative ${
         isEven ? "md:ml-auto md:pl-12" : "md:mr-auto md:pr-12"
       } md:w-1/2`}
     >
-      {/* Card */}
-      <div
-        className={`ml-6 rounded-2xl border border-dark/25 bg-light/35 p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:shadow-xl md:ml-0`}
-      >
-        {/* Company & Position */}
+      <div className="ml-6 rounded-2xl border border-dark/25 bg-light/35 p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:shadow-xl md:ml-0">
         <div className="mb-6 flex flex-col justify-between lg:flex-row">
           {experience.site ? (
             <a href={experience.site} target="_blank" rel="noopener noreferrer">
@@ -63,21 +42,17 @@ function ExperienceCard({
           )}
           <div className="flex flex-col font-bold text-dark lg:items-end">
             <h4>{`${experience.startDate} - ${experience.endDate}`}</h4>
-            <span className="text-sm">{`${experience.location}`}</span>
+            <span className="text-sm">{experience.location}</span>
           </div>
         </div>
 
         <h5 className="text-lg font-medium text-dark">
           {experience.position},
-          <span className="ml-2 font-normal text-darken/50">
-            {experience.type}
-          </span>
+          <span className="ml-2 font-normal text-darken/50">{experience.type}</span>
         </h5>
 
         <div className="mb-4 leading-relaxed text-light-5">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {experience.content}
-          </ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{experience.content}</ReactMarkdown>
         </div>
 
         <div className="flex flex-wrap gap-2">
@@ -95,58 +70,14 @@ function ExperienceCard({
   )
 }
 
-export default function Experience() {
-  const [experiences, setExperiences] = useState<Experience[]>([])
-  const [loading, setLoading] = useState(true)
+interface ExperienceProps {
+  experiences: ExperienceWithTechNames[]
+}
+
+export default function Experience({ experiences }: ExperienceProps) {
   const [showAll, setShowAll] = useState(false)
 
-  useEffect(() => {
-    getAllExperiences().then((data: any[]) => {
-      const withTechNames = data.map((exp) => {
-        const allTech: Record<string, string> = {
-          nextjs: "Next.js",
-          react: "React",
-          nuxt: "Nuxt",
-          astro: "Astro",
-          angular: "Angular",
-          ionic: "Ionic",
-          flutter: "Flutter",
-          dart: "Dart",
-          nodejs: "Node.js",
-          django: "Django",
-          strapi: "Strapi",
-          bun: "Bun",
-          typescript: "TypeScript",
-          tailwindcss: "Tailwind CSS",
-          shadcniui: "Shadcn UI",
-          prisma: "Prisma",
-          mysql: "MySQL",
-          postgresql: "PostgreSQL",
-        }
-        const techNames = (exp.techNames || exp.tech || []).map(
-          (id: string) => allTech[id] || id
-        )
-        return { ...exp, techNames }
-      })
-      setExperiences(withTechNames)
-      setLoading(false)
-    })
-  }, [])
-
   const displayedExperiences = showAll ? experiences : experiences.slice(0, 3)
-
-  if (loading) {
-    return (
-      <>
-        <Title title="Experiencia" isMain={false} />
-        <section className="relative mx-auto w-full px-8">
-          <div className="flex justify-center py-10">
-            <div className="h-8 w-8 animate-spin rounded-full border-4 border-darken border-t-transparent"></div>
-          </div>
-        </section>
-      </>
-    )
-  }
 
   return (
     <>
@@ -173,11 +104,12 @@ export default function Experience() {
           </AnimatePresence>
         </div>
 
-        {experiences.length > 2 && (
+        {experiences.length > 3 && (
           <motion.div
             className="mt-12 flex justify-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.5 }}
           >
             <button
@@ -193,29 +125,14 @@ export default function Experience() {
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </>
               ) : (
                 <>
                   Ver más
-                  <svg
-                    className="h-4 w-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </>
               )}
@@ -223,7 +140,7 @@ export default function Experience() {
           </motion.div>
         )}
 
-        {!showAll && (
+        {!showAll && experiences.length > 3 && (
           <div className="from-stale-300 pointer-events-none absolute right-0 bottom-0 left-0 h-32 bg-gradient-to-t to-transparent" />
         )}
       </section>

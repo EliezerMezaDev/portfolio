@@ -1,9 +1,9 @@
 "use client"
 import { useRef, useState } from "react"
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 import Link from "next/link"
 
-const navVariant: any = {
+const navVariant: Variants = {
   open: {
     clipPath: "circle(2000px at calc(100% - 40px) 40px)",
     transition: {
@@ -23,8 +23,8 @@ const navVariant: any = {
   },
 }
 
-const itemVariants: any = {
-  open: (custom: any) => ({
+const itemVariants: Variants = {
+  open: (custom: number) => ({
     opacity: 1,
     x: 0,
     transition: {

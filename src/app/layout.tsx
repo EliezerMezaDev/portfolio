@@ -1,5 +1,5 @@
 import "./globals.css"
-import { Poppins, Jost, JetBrains_Mono } from "next/font/google"
+import { Poppins, Jost } from "next/font/google"
 import Navbar from "@components/ui/Navbar"
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css"
@@ -20,6 +20,11 @@ const jost = Jost({
   display: "swap",
   variable: "--font-jost",
 })
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+}
 
 export const metadata = {
   manifest: "/manifest.json",

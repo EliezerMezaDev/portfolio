@@ -4,7 +4,7 @@ import React from "react"
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode
-  variation: string
+  variation: "primary" | "secondary"
   onlyIcon?: boolean
   icon?: IconProp
 }
@@ -24,7 +24,7 @@ const Button = ({
         : "border border-black/5 bg-linear-to-r from-light-2 to-light-3/15 text-main hover:scale-95"
     }`}
   >
-    {onlyIcon ? <FontAwesomeIcon icon={icon!} /> : children}
+    {onlyIcon && icon ? <FontAwesomeIcon icon={icon} /> : children}
   </button>
 )
 

@@ -119,7 +119,7 @@ function ScrollDownButton() {
       >
         <FontAwesomeIcon
           icon={isAtBottom ? faChevronUp : faChevronDown}
-          className="text-3hite text-2xl"
+          className="text-white text-2xl"
         />
       </motion.div>
     </div>

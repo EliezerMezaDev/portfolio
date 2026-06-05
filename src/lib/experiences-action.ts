@@ -1,11 +1,12 @@
 "use server"
 
+import fs from "fs"
+import path from "path"
+import matter from "gray-matter"
 import { Experience } from "./types"
+import { resolveTechNames } from "./tech-utils"
 
-async function getAllExperiencesServer(): Promise<Experience[]> {
-  const fs = require("fs")
-  const path = require("path")
-
+async function getAllExperiencesServer(): Promise<(Experience & { techNames: string[] })[]> {
   const experiencesDirectory = path.join(process.cwd(), "src/content/experiences")
 
   const files = fs.readdirSync(experiencesDirectory).filter((file: string) => file.endsWith(".md"))
@@ -13,14 +14,7 @@ async function getAllExperiencesServer(): Promise<Experience[]> {
   const experiences = files.map((filename: string) => {
     const filePath = path.join(experiencesDirectory, filename)
     const fileContent = fs.readFileSync(filePath, "utf-8")
-    const matter = require("gray-matter")
     const { data, content } = matter(fileContent)
-    const allTech: Record<string, string> = {
-      nextjs: "Next.js", react: "React", nuxt: "Nuxt", astro: "Astro", angular: "Angular",
-      ionic: "Ionic", flutter: "Flutter", dart: "Dart", nodejs: "Node.js", django: "Django",
-      strapi: "Strapi", bun: "Bun", typescript: "TypeScript", tailwindcss: "Tailwind CSS",
-      shadcniui: "Shadcn UI", prisma: "Prisma", mysql: "MySQL", postgresql: "PostgreSQL",
-    }
     return {
       startDate: data.startDate,
       endDate: data.endDate,
@@ -30,12 +24,15 @@ async function getAllExperiencesServer(): Promise<Experience[]> {
       type: data.type,
       location: data.location,
       tech: data.tech || [],
-      techNames: (data.tech || []).map((id: string) => allTech[id] || id),
+      techNames: resolveTechNames(data.tech || []),
       content,
     }
   })
 
-  return experiences.sort((a: Experience, b: Experience) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime())
+  return experiences.sort(
+    (a: Experience, b: Experience) =>
+      new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+  )
 }
 
 export { getAllExperiencesServer }

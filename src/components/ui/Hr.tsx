@@ -1,5 +1,4 @@
 import { motion } from "framer-motion"
-import PropTypes from "prop-types"
 
 export default function Hr({ variant }: { variant?: "short" | "long" }) {
   return (
@@ -75,10 +74,3 @@ export default function Hr({ variant }: { variant?: "short" | "long" }) {
   )
 }
 
-Hr.propTypes = {
-  variant: PropTypes.oneOf(["short", "long"]),
-}
-
-Hr.defaultProps = {
-  variant: "short",
-}

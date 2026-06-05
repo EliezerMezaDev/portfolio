@@ -5,9 +5,9 @@ import Button from "@components/ui/Button"
 import Hr from "@components/ui/Hr"
 
 // images
-import Intervyou1 from "@public/placeholder.jpg"
-import Intervyou2 from "@public/placeholder.jpg"
-import Intervyou3 from "@public/placeholder.jpg"
+import Intervyou1 from "@public/image/placeholder/blur.jpg"
+import Intervyou2 from "@public/image/placeholder/blur.jpg"
+import Intervyou3 from "@public/image/placeholder/blur.jpg"
 
 const Hightlight = () => {
   return (
@@ -36,7 +36,7 @@ const Hightlight = () => {
                   alt="EaMZ"
                   fill
                   placeholder="blur"
-                  className="rat object-cover"
+                  className="object-cover"
                   sizes="50vw"
                 />
               </motion.div>

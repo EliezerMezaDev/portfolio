@@ -3,7 +3,7 @@ import Footer from "@components/ui/Footer"
 export const metadata = {
   title: "Sobre mi | EaMZ",
   description:
-    "Product-Minded Software Engineer specializing in Next.js, Spring Boot, and AI Solutions. Founder & CTO of Intervyou. Computer Science graduate from Universitas Negeri Malang.",
+    "Eliezer A Meza — Frontend Engineer con +5 años de experiencia en arquitecturas escalables y aplicaciones híbridas. Especializado en Fintech.",
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {

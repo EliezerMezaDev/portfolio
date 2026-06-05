@@ -3,6 +3,7 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import BlurImage from "@public/image/placeholder/blur.jpg"
 import { Project } from "@lib/types"
+import { TECH_CATEGORY_MAP } from "@lib/tech-utils"
 
 interface ProjectWithTechNames extends Project {
   techNames: string[]
@@ -14,36 +15,13 @@ interface ProjectCardProps {
   activeCategory: string | null
 }
 
-const techCategoryMap: Record<string, string> = {
-  nextjs: "frontend",
-  react: "frontend",
-  nuxt: "frontend",
-  astro: "frontend",
-  angular: "frontend",
-  ionic: "mobile",
-  flutter: "mobile",
-  dart: "mobile",
-  nodejs: "backend",
-  django: "backend",
-  strapi: "backend",
-  bun: "backend",
-  typescript: "tools",
-  tailwindcss: "tools",
-  shadcniui: "tools",
-  prisma: "database",
-  mysql: "database",
-  postgresql: "database",
-}
-
 export default function ProjectCard({
   project,
   index,
   activeCategory,
 }: ProjectCardProps) {
   if (activeCategory) {
-    const projectCategories = project.tech.map(
-      (id) => techCategoryMap[id] || id
-    )
+    const projectCategories = project.tech.map((id) => TECH_CATEGORY_MAP[id] || id)
     if (!projectCategories.includes(activeCategory)) return null
   }
 
@@ -55,6 +33,7 @@ export default function ProjectCard({
         className="group/tes relative z-10 mb-5 flex aspect-video h-auto w-full flex-col items-start justify-center bg-darken px-5 py-20 md:px-10 md:py-2"
         initial={{ opacity: 0, x: -200 }}
         whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
         transition={{ type: "spring" }}
       >
         <Image
@@ -62,6 +41,7 @@ export default function ProjectCard({
           alt={project.title}
           fill
           placeholder="blur"
+          sizes="(max-width: 768px) 100vw, 50vw"
           className="ease object-cover opacity-10 transition-all duration-500 group-hover/tes:opacity-100"
           blurDataURL={BlurImage.src}
         />
@@ -74,9 +54,7 @@ export default function ProjectCard({
           </div>
         )}
         <div className="ease content z-10 text-center opacity-100 transition-all duration-500 group-hover/tes:opacity-0">
-          <h1 className="mb-3 text-3xl font-bold text-light">
-            {project.title}
-          </h1>
+          <h1 className="mb-3 text-3xl font-bold text-light">{project.title}</h1>
           <p className="line-clamp-2 text-light-2">{firstParagraph}</p>
           <div className="mt-5 flex flex-row flex-wrap items-center justify-center gap-2">
             {project.techNames.map((name, idx) => (

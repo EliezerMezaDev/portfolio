@@ -249,6 +249,7 @@ export default function RootPage() {
                   height={550}
                   placeholder="blur"
                   alt="EaMZ"
+                  sizes="(max-width: 768px) 0px, 20vw"
                   className="h-full w-full rounded-full object-cover"
                 />
               </div>

@@ -6,11 +6,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   if (!project) return { title: "Not Found | EaMZ" }
 
-  const firstParagraph = project.content.split("\n\n")[0] || project.content
+  const description = (project.content.split("\n\n")[0] || project.content).slice(0, 160)
+  const ogImage = project.images[0]?.src
 
   return {
     title: `${project.title} | EaMZ`,
-    description: firstParagraph.slice(0, 160),
+    description,
+    openGraph: {
+      title: `${project.title} | EaMZ`,
+      description,
+      ...(ogImage && {
+        images: [{ url: ogImage, alt: project.title }],
+      }),
+    },
   }
 }
 

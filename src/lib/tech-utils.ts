@@ -1,13 +1,49 @@
 import { Experience, Project } from "./types"
 
+export const TECH_NAME_MAP: Record<string, string> = {
+  nextjs: "Next.js",
+  react: "React",
+  nuxt: "Nuxt",
+  astro: "Astro",
+  angular: "Angular",
+  ionic: "Ionic",
+  flutter: "Flutter",
+  dart: "Dart",
+  nodejs: "Node.js",
+  django: "Django",
+  strapi: "Strapi",
+  bun: "Bun",
+  typescript: "TypeScript",
+  tailwindcss: "Tailwind CSS",
+  shadcniui: "Shadcn UI",
+  prisma: "Prisma",
+  mysql: "MySQL",
+  postgresql: "PostgreSQL",
+}
+
+export const TECH_CATEGORY_MAP: Record<string, string> = {
+  nextjs: "frontend",
+  react: "frontend",
+  nuxt: "frontend",
+  astro: "frontend",
+  angular: "frontend",
+  ionic: "mobile",
+  flutter: "mobile",
+  dart: "mobile",
+  nodejs: "backend",
+  django: "backend",
+  strapi: "backend",
+  bun: "backend",
+  typescript: "tools",
+  tailwindcss: "tools",
+  shadcniui: "tools",
+  prisma: "database",
+  mysql: "database",
+  postgresql: "database",
+}
+
 export function getTechnologyById(id: string): string {
-  const allTech: Record<string, string> = {
-    nextjs: "Next.js", react: "React", nuxt: "Nuxt", astro: "Astro", angular: "Angular",
-    ionic: "Ionic", flutter: "Flutter", dart: "Dart", nodejs: "Node.js", django: "Django",
-    strapi: "Strapi", bun: "Bun", typescript: "TypeScript", tailwindcss: "Tailwind CSS",
-    shadcniui: "Shadcn UI", prisma: "Prisma", mysql: "MySQL", postgresql: "PostgreSQL",
-  }
-  return allTech[id] || id
+  return TECH_NAME_MAP[id] || id
 }
 
 export function resolveTechNames(techIds: string[]): string[] {

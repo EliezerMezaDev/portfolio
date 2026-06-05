@@ -26,7 +26,7 @@ async function generateSitemap() {
   sitemap.end()
 
   const sitemapXML = (await streamToPromise(sitemap)).toString()
-  fs.writeFileSync("./public/sitemap.xml.gz", sitemapXML)
+  fs.writeFileSync("./public/sitemap.xml", sitemapXML)
 }
 
 generateSitemap()

@@ -1,14 +1,15 @@
 "use client"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import Button from "@components/ui/Button"
 import ProjectCard from "./ProjectCard"
-import FixedButon from "@components/ui/FixedButton"
+import FixedButton from "@components/ui/FixedButton"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons"
 import { Project } from "@lib/types"
 import Hr from "@components/ui/Hr"
+import { TECH_CATEGORY_MAP } from "@lib/tech-utils"
 
 interface ProjectWithTechNames extends Project {
   techNames: string[]
@@ -25,34 +26,15 @@ interface ProjectsClientProps {
   projects: ProjectWithTechNames[]
 }
 
-const techCategoryMap: Record<string, string> = {
-  nextjs: "frontend",
-  react: "frontend",
-  nuxt: "frontend",
-  astro: "frontend",
-  angular: "frontend",
-  ionic: "mobile",
-  flutter: "mobile",
-  dart: "mobile",
-  nodejs: "backend",
-  django: "backend",
-  strapi: "backend",
-  bun: "backend",
-}
-
 export default function ProjectsClient({ projects }: ProjectsClientProps) {
   const [activeCategory, setActiveCategory] = useState<string | null>(null)
-
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
 
   return (
     <>
       <main className="overflow-hidden">
-        <FixedButon href="/#projects">
+        <FixedButton href="/#projects">
           <FontAwesomeIcon icon={faChevronLeft} className="pr-10 text-black" />
-        </FixedButon>
+        </FixedButton>
 
         <div className="mt-16 flex w-full flex-col items-center justify-start pl-10 md:pl-32">
           <div className="my-5 flex flex-col items-center justify-center self-start">
@@ -61,6 +43,7 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
               className="mt-3 text-3xl font-bold"
               initial={{ opacity: 0, x: -200 }}
               whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.7, type: "spring" }}
             >
               Proyectos
@@ -71,8 +54,9 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
         <motion.div
           initial={{ opacity: 0, x: 200 }}
           whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
           transition={{ type: "spring" }}
-          className="my-5 flex flex-row flex-wrap items-start justify-center "
+          className="my-5 flex flex-row flex-wrap items-start justify-center"
         >
           <span className="flex rounded-full border border-main overflow-hidden">
             {categories.map((category) => {
@@ -108,6 +92,7 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
           className="my-5 flex flex-col items-center justify-center self-start"
         >
           <Link href="projects/archive" className="hover:underline">

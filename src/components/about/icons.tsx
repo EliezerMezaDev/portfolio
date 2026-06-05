@@ -1,4 +1,6 @@
-function ActivityIcon(props: any) {
+import { SVGProps } from "react"
+
+function ActivityIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -16,7 +18,8 @@ function ActivityIcon(props: any) {
     </svg>
   )
 }
-function LaptopIcon(props: any) {
+
+function LaptopIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -36,7 +39,7 @@ function LaptopIcon(props: any) {
   )
 }
 
-function WebhookIcon(props: any) {
+function WebhookIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -46,7 +49,7 @@ function WebhookIcon(props: any) {
       stroke="currentColor"
       strokeWidth="2"
       strokeLinecap="round"
-      stroke-linejoin="round"
+      strokeLinejoin="round"
     >
       <path d="M9 9v8.044a2 2 0 0 1 -2.996 1.734l-1.568 -.9a3 3 0 0 1 -1.436 -2.561v-6.635a3 3 0 0 1 1.436 -2.56l6 -3.667a3 3 0 0 1 3.128 0l6 3.667a3 3 0 0 1 1.436 2.561v6.634a3 3 0 0 1 -1.436 2.56l-6 3.667a3 3 0 0 1 -3.128 0" />
       <path d="M17 9h-3.5a1.5 1.5 0 0 0 0 3h2a1.5 1.5 0 0 1 0 3h-3.5" />
@@ -54,7 +57,7 @@ function WebhookIcon(props: any) {
   )
 }
 
-function MobileIcon(props: any) {
+function MobileIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
