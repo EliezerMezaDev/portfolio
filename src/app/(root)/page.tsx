@@ -192,7 +192,7 @@ export default function RootPage() {
                   type: "spring",
                 }}
               >
-                Frontend Engineer
+                Full Stack Engineer
               </motion.h1>
 
               <motion.p
@@ -204,10 +204,10 @@ export default function RootPage() {
                   type: "spring",
                 }}
               >
-                Ingeniero de Software Frontend con +5 años de experiencia
-                diseñando arquitecturas escalables y aplicaciones híbridas.
-                Especializado en el sector Fintech, enfocado en optimizar el
-                rendimiento y la seguridad en sistemas transaccionales.
+                Ingeniero de Software Full Stack con +5 años de experiencia
+                diseñando arquitecturas escalables, aplicaciones híbridas y
+                sistemas de IA conversacional. Especializado en Fintech y
+                Travel Tech.
               </motion.p>
               <motion.div
                 className="buttons mt-4 flex flex-row items-center justify-center space-x-4 lg:mt-10"

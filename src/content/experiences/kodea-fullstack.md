@@ -12,8 +12,8 @@ tech:
   - "react"
 ---
 
-Arquitectura de aplicaciones móviles hibridas para criptomonedas y plataformas fintech, implementando flujos de transacciones cifradas y gestión de estado avanzada.
+Arquitectura y desarrollo de wallets de criptomonedas nativas y plataformas Fintech, con enfoque en seguridad transaccional y rendimiento.
 
-- Wallets crypto nativas (iOS/Android) con Flutter, +300 transacciones/mes
-- Gestión de estado con GetX, creación de forks de paquetes pub.dev
-- Interfaz transaccional Fintech con Next.js, 30% reducción en tiempos de carga
+- **Wallets crypto (iOS/Android)** con Flutter: flujos de transacciones cifradas vía API RESTful, **90% disponibilidad** y **+300 transacciones mensuales** sin brechas de seguridad
+- Gestión de estado con **GetX**; creación de forks y personalización de paquetes pub.dev para integrar características avanzadas no disponibles en el ecosistema
+- Interfaz transaccional Fintech con **Next.js + React**: optimización del Critical Rendering Path, **30% de reducción en tiempos de carga** para +100 usuarios concurrentes

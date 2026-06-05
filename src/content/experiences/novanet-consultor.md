@@ -12,8 +12,8 @@ tech:
   - "strapi"
 ---
 
-Consultoría técnica para la planificación de nuevas plataformas web y el mantenimiento de sistemas ERP con integración de módulos de pago.
+Consultoría técnica para arquitectura, desarrollo y mantenimiento de plataformas web empresariales, con integración de módulos de pago y mejora de performance.
 
-- Mantenimiento de +5 plataformas, 20% mejora tiempos de carga y SEO
-- Planificación arquitectónica de +10 plataformas nuevas (Nuxt/Astro)
-- Módulos de pago c2p en ERP, +200 transacciones/día
+- Mantenimiento de **+5 plataformas web** preexistentes: **20% de reducción en tiempos de carga** y mejora consistente en SEO
+- **Lideré** el levantamiento de requerimientos y planificación arquitectónica de **+10 plataformas nuevas** (Nuxt/Astro/Svelte), reduciendo el Time-to-Market inicial en un **20%**
+- Desarrollo e integración de **módulos de pago c2p** en sistemas ERP: **+200 transacciones diarias** y **60% de mejora en eficiencia** en el cierre de facturas

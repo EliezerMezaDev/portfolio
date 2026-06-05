@@ -13,8 +13,8 @@ tech:
   - "nextjs"
 ---
 
-Desarrollo integral de plataformas web y móviles, asegurando la cohesión entre el frontend y backend para sistemas administrativos y transaccionales.
+Desarrollo integral de aplicaciones web y móviles empresariales para clientes del sector comercial y administrativo, participando en todo el ciclo de vida del software.
 
-- Estrategias de gestión para +15 clientes, 20% optimización ciclos de desarrollo
-- Apps empresariales para +200 usuarios (inventarios, análisis de costos)
-- Soluciones full-stack en equipos Frontend/Backend, 15% reducción errores
+- Nuevas estrategias de gestión de proyectos para **+15 clientes**, logrando **20% de optimización** en los ciclos de desarrollo
+- Diseño y desarrollo de **aplicaciones empresariales** para **+200 usuarios activos** con control de inventarios y análisis de costos
+- Participación en equipos Frontend/Backend con soluciones full-stack: **15% de reducción** en errores de integración

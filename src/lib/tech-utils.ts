@@ -19,6 +19,12 @@ export const TECH_NAME_MAP: Record<string, string> = {
   prisma: "Prisma",
   mysql: "MySQL",
   postgresql: "PostgreSQL",
+  python: "Python",
+  fastapi: "FastAPI",
+  langgraph: "LangGraph",
+  langchain: "LangChain",
+  redis: "Redis",
+  svelte: "Svelte",
 }
 
 export const TECH_CATEGORY_MAP: Record<string, string> = {
@@ -27,6 +33,7 @@ export const TECH_CATEGORY_MAP: Record<string, string> = {
   nuxt: "frontend",
   astro: "frontend",
   angular: "frontend",
+  svelte: "frontend",
   ionic: "mobile",
   flutter: "mobile",
   dart: "mobile",
@@ -34,12 +41,17 @@ export const TECH_CATEGORY_MAP: Record<string, string> = {
   django: "backend",
   strapi: "backend",
   bun: "backend",
+  python: "backend",
+  fastapi: "backend",
   typescript: "tools",
   tailwindcss: "tools",
   shadcniui: "tools",
   prisma: "database",
   mysql: "database",
   postgresql: "database",
+  redis: "database",
+  langgraph: "backend",
+  langchain: "backend",
 }
 
 export function getTechnologyById(id: string): string {

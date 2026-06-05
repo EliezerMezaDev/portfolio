@@ -35,7 +35,7 @@ export const metadata = {
   },
 
   description:
-    "Eliezer A Meza - Frontend Engineer con +5 años de experiencia en arquitecturas escalables y aplicaciones híbridas. Especializado en Fintech.",
+    "Eliezer A Meza - Full Stack Engineer con +5 años de experiencia en arquitecturas escalables, aplicaciones híbridas y sistemas de IA conversacional. Especializado en Fintech y Travel Tech.",
   authors: [{ name: "Eliezer A Meza", url: "https://eamz.netlify.app/" }],
   creator: "Eliezer A Meza",
   publisher: "EaMZ",
@@ -56,14 +56,20 @@ export const metadata = {
 
   keywords: [
     "Eliezer Meza",
-    "Frontend Engineer",
+    "Full Stack Engineer",
     "Portfolio",
     "React",
     "Next.js",
     "TypeScript",
+    "FastAPI",
+    "Python",
+    "Flutter",
+    "LangGraph",
+    "IA Conversacional",
     "Web Developer",
-    "Desarrollador Frontend",
+    "Desarrollador Full Stack",
     "Fintech",
+    "Travel Tech",
     "EaMZ",
   ],
 
@@ -74,7 +80,7 @@ export const metadata = {
     title: "EaMZ | Portofolio",
     siteName: "EaMZ | Portofolio",
     description:
-      "Eliezer A Meza - Frontend Engineer con +5 años de experiencia en arquitecturas escalables y aplicaciones híbridas.",
+      "Eliezer A Meza - Full Stack Engineer con +5 años de experiencia en arquitecturas escalables, aplicaciones híbridas y sistemas de IA conversacional.",
     images: [
       {
         url: "/og-image-rev.webp",
@@ -89,7 +95,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "EaMZ | Portofolio",
     description:
-      "Eliezer A Meza - Frontend Engineer con +5 años de experiencia en arquitecturas escalables y aplicaciones híbridas.",
+      "Eliezer A Meza - Full Stack Engineer con +5 años de experiencia en arquitecturas escalables, aplicaciones híbridas y sistemas de IA conversacional.",
     images: ["/og-image-rev.webp"],
     creator: "@EliezerMezaDev",
   },
@@ -100,7 +106,7 @@ const jsonLd = {
   "@type": "Person",
   name: "Eliezer A Meza",
   url: "https://eamz.netlify.app/",
-  jobTitle: "Frontend Engineer",
+  jobTitle: "Full Stack Engineer",
   sameAs: [
     "https://github.com/EliezerMezaDev/",
     "https://www.linkedin.com/in/eliezer-a-meza-7a1b882b9/",

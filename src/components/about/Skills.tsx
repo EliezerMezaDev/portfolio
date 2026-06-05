@@ -1,7 +1,7 @@
 "use client"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
-import { LaptopIcon, WebhookIcon, MobileIcon } from "./icons"
+import { LaptopIcon, WebhookIcon, MobileIcon, ActivityIcon } from "./icons"
 import Hr from "@components/ui/Hr"
 import Title from "./title"
 
@@ -10,73 +10,98 @@ const skillCategories = {
     title: "Desarrollo web frontend",
     shortTitle: "Frontend",
     icon: LaptopIcon,
-    description: "Creación de aplicaciones web modernas",
+    description: "Aplicaciones web modernas y escalables",
     languages: [
       { name: "React", highlight: true },
-      { name: "NextJS", highlight: true },
-      { name: "Vue", highlight: false },
-      { name: "Nuxt", highlight: false },
+      { name: "Next.js", highlight: true },
+      { name: "Nuxt", highlight: true },
+      { name: "Astro", highlight: false },
       { name: "TypeScript", highlight: true },
-      { name: "HTML", highlight: false },
-      { name: "CSS", highlight: false },
-      { name: "SCSS", highlight: false },
       { name: "TailwindCSS", highlight: true },
-      { name: "Bootstrap", highlight: false },
-      { name: "Inglés B1", highlight: false },
+      { name: "SCSS", highlight: false },
+      { name: "HTML/CSS", highlight: false },
     ],
     tools: [
       "Vercel",
+      "Netlify",
       "Vite",
       "Figma",
       "Docker",
       "Git",
-      "Github",
-      "GitLab",
-      "Postman",
+      "shadcn/ui",
+      "Recharts",
     ],
   },
   api: {
     title: "Desarrollo backend & API",
     shortTitle: "Backend",
     icon: WebhookIcon,
-    description: "Creación de servicios backend robustos y escalables",
+    description: "Servicios backend robustos y escalables",
     languages: [
-      { name: "NodeJS", highlight: false },
-      { name: "ExpressJS", highlight: true },
-      { name: "Bun", highlight: true },
+      { name: "Python", highlight: true },
+      { name: "FastAPI", highlight: true },
+      { name: "Node.js", highlight: true },
+      { name: "Bun", highlight: false },
       { name: "Strapi", highlight: true },
-      { name: "FastAPI", highlight: false },
-      { name: "Python", highlight: false },
-      { name: "Django", highlight: false },
       { name: "PostgreSQL", highlight: true },
-      { name: "MySQL", highlight: false },
-      { name: "Firebase", highlight: false },
+      { name: "Redis", highlight: false },
+      { name: "Celery", highlight: false },
     ],
     tools: [
       "Docker",
       "Postman",
       "Swagger",
-      "Git",
-      "Github",
-      "GitLab",
-      "AWS",
+      "AWS Bedrock",
       "Supabase",
+      "pgvector",
+      "WebSockets",
+      "REST / GraphQL",
     ],
   },
   mobile: {
     title: "Desarrollo Mobile",
     shortTitle: "Mobile",
     icon: MobileIcon,
-    description: "Creación de aplicaciones móviles multiplataforma",
+    description: "Aplicaciones móviles multiplataforma",
     languages: [
-      { name: "React Native", highlight: true },
       { name: "Flutter", highlight: true },
-      { name: "JavaScript", highlight: false },
-      { name: "TypeScript", highlight: false },
-      { name: "Dart", highlight: false },
+      { name: "Dart", highlight: true },
       { name: "Ionic", highlight: false },
+      { name: "Angular", highlight: false },
+      { name: "TypeScript", highlight: false },
     ],
-    tools: ["Android Studio", "React Native CLI", "Capacitor"],
+    tools: [
+      "Android Studio",
+      "GetX",
+      "LiveKit SDK",
+      "Capacitor",
+      "pub.dev",
+      "Firebase",
+    ],
+  },
+  ai: {
+    title: "IA & LLM",
+    shortTitle: "IA / LLM",
+    icon: ActivityIcon,
+    description: "Agentes IA y sistemas conversacionales",
+    languages: [
+      { name: "LangGraph", highlight: true },
+      { name: "LangChain", highlight: true },
+      { name: "RAG", highlight: true },
+      { name: "Claude (Bedrock)", highlight: true },
+      { name: "ElevenLabs", highlight: false },
+      { name: "LiveKit Agents", highlight: false },
+      { name: "Deepgram", highlight: false },
+      { name: "Pipecat", highlight: false },
+    ],
+    tools: [
+      "AWS Bedrock",
+      "pgvector",
+      "Sabre REST APIs",
+      "FastAPI + WebSocket",
+      "Python",
+      "Celery",
+    ],
   },
 }
 
@@ -222,7 +247,7 @@ export default function Skills() {
 
       <div className="relative w-full">
         <div className="mx-auto grid grid-cols-1 gap-6 py-2 md:px-8 md:py-6">
-          <div className="grid grid-cols-3 md:gap-6">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-6">
             {Object.entries(skillCategories).map(([key, skill], index) => (
               <motion.div
                 key={key}
