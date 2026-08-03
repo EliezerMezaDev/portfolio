@@ -1,0 +1,129 @@
+---
+import { frontmatter as en } from "../i18n/en.md";
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 left-0 right-0 z-50 border-b border-line bg-bg transition-transform duration-300"
+>
+  <nav
+    class="max-w-base mx-auto px-5 py-4 flex items-center justify-between"
+    aria-label={en.nav.navLabel}
+  >
+    <a
+      href="/"
+      class="font-semibold text-ink no-underline hover:text-accent"
+      aria-label="Eliezer Meza — Home"
+      title="Eliezer Meza — Home"
+    >
+      eamz
+    </a>
+
+    <div class="flex items-center gap-5 text-sm">
+      <a
+        href="/#projects"
+        class="text-muted hover:text-ink no-underline hover:underline"
+        data-i18n="nav.projects"
+        title="Eliezer Meza — Projects">{en.nav.projects}</a
+      >
+
+      <a
+        href="/#contact"
+        class="text-muted hover:text-ink no-underline hover:underline"
+        data-i18n="nav.contact"
+        title="Eliezer Meza — Contact">{en.nav.contact}</a
+      >
+
+      <a
+        href="/cv"
+        class="text-muted hover:text-ink no-underline hover:underline"
+        data-i18n="nav.cv"
+        title="Eliezer Meza — CV">{en.nav.cv}</a
+      >
+
+      <button
+        onclick="window.toggleLang()"
+        class="text-muted hover:text-ink font-mono text-xs border border-line px-2 py-0.5 cursor-pointer bg-transparent"
+        aria-label="Toggle language / Cambiar idioma"
+        type="button"
+        data-i18n="nav.langSwitch">{en.nav.langSwitch}</button
+      >
+    </div>
+  </nav>
+</header>
+
+<script>
+  function initStickyHeader() {
+    const header = document.getElementById("site-header");
+    if (!header) return;
+
+    const HIDE_THRESHOLD = 80;  // px scrolled antes de ocultar
+    const PROXIMITY_ZONE = 60; // px desde el top para reaparecer
+
+    let lastScrollY = window.scrollY;
+    let hidden = false;
+    let ticking = false;
+
+    function applyBodyOffset() {
+      document.body.style.paddingTop = header.offsetHeight + "px";
+    }
+
+    function show() {
+      header.style.transform = "translateY(0)";
+      hidden = false;
+    }
+
+    function hide() {
+      header.style.transform = "translateY(-100%)";
+      hidden = true;
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const currentY = window.scrollY;
+        if (currentY <= HIDE_THRESHOLD) {
+          show();
+        } else if (currentY > lastScrollY) {
+          hide();
+        } else if (currentY < lastScrollY - 10) {
+          show();
+        }
+        lastScrollY = currentY;
+        ticking = false;
+      });
+    }
+
+    function onMouseMove(e: MouseEvent) {
+      if (hidden && e.clientY <= PROXIMITY_ZONE) show();
+    }
+
+    function onTouchStart(e: TouchEvent) {
+      if (hidden && e.touches[0].clientY <= PROXIMITY_ZONE) show();
+    }
+
+    const resizeObserver = new ResizeObserver(applyBodyOffset);
+    resizeObserver.observe(header);
+    applyBodyOffset();
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    document.addEventListener("mousemove", onMouseMove, { passive: true });
+    document.addEventListener("touchstart", onTouchStart, { passive: true });
+
+    // Limpieza en View Transitions para evitar listeners duplicados
+    document.addEventListener(
+      "astro:before-swap",
+      () => {
+        window.removeEventListener("scroll", onScroll);
+        document.removeEventListener("mousemove", onMouseMove);
+        document.removeEventListener("touchstart", onTouchStart);
+        resizeObserver.disconnect();
+      },
+      { once: true },
+    );
+  }
+
+  initStickyHeader();
+  document.addEventListener("astro:after-swap", initStickyHeader);
+</script>

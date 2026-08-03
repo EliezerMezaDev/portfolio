@@ -1,0 +1,60 @@
+---
+import SectionWrapper from "../../../../components/SectionWrapper.astro";
+import { frontmatter as en } from "../../../../i18n/en.md";
+import { md } from "../../../../utils/md";
+---
+
+<SectionWrapper labelledBy="hero-heading" layout="hero">
+  <span class="mb-6 flex items-center self-end">
+    <span class="w-2 h-2 bg-success mr-2"></span>
+    <p
+      class="text-ink text-xs font-mono"
+      data-i18n="home.availability"
+      set:html={md(en.home.availability)}
+    />
+  </span>
+
+  <span
+    class="text-xl font-semibold text-ink"
+    data-i18n="home.welcome"
+    set:html={md(en.home.welcome)}
+  />
+
+  <h1
+    id="hero-heading"
+    class="text-3xl sm:text-4xl font-bold text-accent leading-tight mb-4"
+    data-i18n="home.h1"
+    set:html={md(en.home.h1)}
+  />
+  <p
+    class="max-w-prose text-muted text-lg leading-relaxed"
+    data-i18n="home.desc1"
+    set:html={md(en.home.desc1)}
+  />
+  <p
+    class="max-w-prose text-muted text-lg leading-relaxed"
+    data-i18n="home.desc2"
+    set:html={md(en.home.desc2)}
+  />
+  <p
+    class="max-w-prose text-muted text-lg leading-relaxed"
+    data-i18n="home.desc3"
+    set:html={md(en.home.desc3)}
+  />
+  <div class="flex flex-wrap gap-4 mt-8">
+    <a
+      href="#projects"
+      class="primary-btn"
+      data-i18n="home.cta1"
+      title={en.home.cta1}
+      set:html={md(en.home.cta1)}
+    />
+    <a
+      href="/cv"
+      class="secondary-btn"
+      data-i18n="home.cta2"
+      title={en.home.cta2}
+      set:html={md(en.home.cta2)}
+    />
+  </div>
+</SectionWrapper>

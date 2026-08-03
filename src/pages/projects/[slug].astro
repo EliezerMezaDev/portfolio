@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import Project from "../../layouts/Project.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { en, es, type, stack, gallery, repo_url, preview_url } = entry.data;
+
+const canonicalUrl = `${import.meta.env.SITE}/projects/${entry.id}`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: en.title,
+  description: en.resultHeadline,
+  author: { "@type": "Person", name: "Eliezer Meza", url: import.meta.env.SITE },
+  url: canonicalUrl,
+};
+---
+
+<Project
+  en={en}
+  es={es}
+  type={type}
+  stack={stack}
+  gallery={gallery}
+  repo_url={repo_url}
+  preview_url={preview_url}
+  canonicalUrl={canonicalUrl}
+  jsonLd={jsonLd}
+/>

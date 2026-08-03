@@ -1,0 +1,68 @@
+---
+import { frontmatter as i18nEn } from "../i18n/en.md";
+import { projectTypeMeta, type ProjectType } from "../utils/projectType";
+
+interface LangData {
+  title: string;
+  client: string;
+  resultHeadline: string;
+}
+
+interface Props {
+  en: LangData;
+  es: LangData;
+  type: ProjectType;
+  stack: string[];
+  href: string;
+}
+
+const { en, es, type, stack, href } = Astro.props;
+const meta = projectTypeMeta(type);
+---
+
+<article class="bg-bg border border-line p-6 flex flex-col">
+  <div class="mb-4">
+    <span
+      class={`inline-block text-xs font-mono px-2 py-0.5 border ${meta.className}`}
+      data-i18n={`project.${meta.labelKey}`}
+    >
+      {i18nEn.project[meta.labelKey]}
+    </span>
+  </div>
+
+  <p
+    class="text-muted text-xs font-mono mb-2"
+    data-bilingual
+    data-content-en={en.client}
+    data-content-es={es.client}
+  >
+    {en.client}
+  </p>
+  <h3
+    class="text-ink font-semibold text-lg mb-2 leading-snug"
+    data-bilingual
+    data-content-en={en.title}
+    data-content-es={es.title}
+  >
+    {en.title}
+  </h3>
+  <p
+    class="font-mono text-accent text-sm mb-4 leading-relaxed"
+    data-bilingual
+    data-content-en={en.resultHeadline}
+    data-content-es={es.resultHeadline}
+  >
+    {en.resultHeadline}
+  </p>
+
+  <p class="text-muted text-xs font-mono mb-4 mt-auto">
+    {stack.slice(0, 5).join(" · ")}{stack.length > 5 ? " · …" : ""}
+  </p>
+  <a
+    href={href}
+    class="text-sm text-accent no-underline hover:underline font-medium"
+    data-i18n="home.viewProject"
+    title={`${en.title} - ${i18nEn.home.viewProject}`}
+    >{i18nEn.home.viewProject}</a
+  >
+</article>

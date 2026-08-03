@@ -1,0 +1,27 @@
+{
+  "name": "eliezermeza.dev-portfolio",
+  "version": "6.0.5",
+  "description": "Personal portfolio website for Eliezer Meza — Fullstack software engineer",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node scripts/generate-og.mjs && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "keywords": [],
+  "author": "eliezermeza.dev@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/tailwind": "^6.0.2",
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "7.1.6",
+    "tailwindcss": "^4.3.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.1"
+  }
+}

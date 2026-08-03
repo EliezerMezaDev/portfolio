@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+/* ─── Self-hosted fonts (font-display: swap prevents render-blocking) ────────── */
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/inter-latin-400-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/inter-latin-600-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/inter-latin-700-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/jetbrains-mono-latin-400-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/jetbrains-mono-latin-500-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ─── Design tokens ─────────────────────────────────────────────────────────── */
+
+@theme {
+  /* Colors — light mode */
+  --color-bg: #fafaf9;
+  --color-ink: #1c1917;
+  --color-ink-2: #211e1c;
+  --color-muted: #57534e;
+  --color-accent: #f79b23;
+  --color-accent-hover: #f3951a;
+  --color-line: #e7e5e4;
+
+  --color-line: #e7e5e4;
+
+  --color-success: #40be57;
+
+  /* Typography */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* ─── Dark mode (media query only — no toggle) ───────────────────────────────── */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1c1917;
+    --color-ink: #f7f7f1;
+    --color-ink-2: #eeeeee;
+    --color-muted: #a8a29e;
+    --color-accent: #f79b23;
+    --color-accent-hover: #f3951a;
+    --color-line: #221d16;
+  }
+}
+
+/* ─── Utility layer ─────────────────────────────────────────────────────────── */
+
+@utility max-w-base {
+  max-width: min(60rem, 100%);
+}
+
+@utility primary-btn {
+  @apply border border-accent hover:bg-accent text-white hover:text-line px-5 py-2.5 text-sm font-medium no-underline;
+}
+
+@utility secondary-btn {
+  @apply border border-line text-ink px-5 py-2.5 text-sm font-medium no-underline hover:bg-line;
+}
+
+/* ─── Base layer ─────────────────────────────────────────────────────────────── */
+
+@layer base {
+  * {
+    @apply transition-none;
+  }
+
+  html {
+    font-size: 17px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg text-ink font-sans antialiased;
+    background-image: url("/bg-hex-light.svg");
+    background-attachment: fixed;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-image: url("/bg-hex-dark.svg");
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    a,
+    button {
+      transition-property:
+        color, border-color, background-color, text-decoration-color;
+      transition-duration: 150ms;
+      transition-timing-function: ease;
+    }
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-bg;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-ink font-semibold tracking-tight;
+  }
+
+  a {
+    @apply text-accent underline-offset-2 hover:underline;
+  }
+
+  p {
+    @apply text-base;
+  }
+
+  p > b,
+  strong {
+    @apply text-ink font-normal;
+  }
+
+  dl {
+    dt {
+      @apply text-ink font-medium font-mono;
+    }
+
+    dd {
+      @apply text-muted ml-0 mb-8 text-sm leading-relaxed;
+
+      &:last-child {
+        @apply mb-0;
+      }
+    }
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  ul,
+  ol {
+    @apply list-inside flex flex-col gap-1;
+  }
+
+  li {
+    @apply text-ink leading-relaxed;
+
+    &::marker {
+      @apply text-accent;
+    }
+  }
+}

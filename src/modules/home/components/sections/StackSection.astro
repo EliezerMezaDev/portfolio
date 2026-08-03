@@ -1,0 +1,45 @@
+---
+import SectionWrapper from "../../../../components/SectionWrapper.astro";
+import { frontmatter as en } from "../../../../i18n/en.md";
+import { md } from "../../../../utils/md";
+
+const frontend = ["TypeScript","React","Next.js","Nuxt","Astro","Flutter","Ionic","Tailwind","SCSS"];
+const backend = ["Python","FastAPI","Node.js","Bun","PostgreSQL","Redis","Celery","Strapi"];
+const ai = ["LangGraph","LangChain","AWS Bedrock (Claude)","RAG","pgvector","LiveKit","ElevenLabs","Deepgram"];
+---
+
+<SectionWrapper labelledBy="stack-heading">
+  <h2
+    id="stack-heading"
+    class="text-xl font-semibold text-ink md:mb-8"
+    data-i18n="home.stackTitle"
+    set:html={md(en.home.stackTitle)}
+  />
+  <div class="grid gap-4 grid-cols-2 md:grid-cols-3">
+    <div class="col-span-full">
+      <p
+        class="text-muted leading-relaxed"
+        data-i18n="home.stackDesc"
+        set:html={md(en.home.stackDesc)}
+      />
+    </div>
+    {
+      [
+        { label: "Frontend", items: frontend },
+        { label: "Backend", items: backend },
+        { label: "AI / LLM", items: ai },
+      ].map(({ label, items }) => (
+        <div>
+          <h3 class="font-semibold text-ink mb-4 text-sm uppercase tracking-wide">
+            {label}
+          </h3>
+          <ul class="space-y-1.5" role="list">
+            {items.map((item) => (
+              <li class="font-mono text-sm text-muted">{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</SectionWrapper>

@@ -1,0 +1,342 @@
+---
+import Base from "./Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { frontmatter as i18nEn } from "../i18n/en.md";
+import { z } from "astro:content";
+import { projectTranslation } from "../content.config";
+import { projectTypeMeta, type ProjectType } from "../utils/projectType";
+
+type LangData = z.infer<typeof projectTranslation>;
+
+interface Props {
+  en: LangData;
+  es: LangData;
+  type: ProjectType;
+  stack: string[];
+  repo_url?: string;
+preview_url?: string;
+  gallery?: string[];
+  canonicalUrl?: string;
+  jsonLd?: object;
+}
+
+const { en, es, type, stack, gallery, canonicalUrl, repo_url, preview_url, jsonLd } = Astro.props;
+const meta = projectTypeMeta(type);
+const hasExtended = !!(
+  en.context ||
+  en.conditions ||
+  en.solution ||
+  en.tools ||
+  en.features ||
+  en.results
+);
+
+const sectionClass =
+  "max-w-base mx-auto px-6 py-16 grid md:grid-cols-[150px_1fr] gap-8";
+const sectionTitleClass = "text-xl font-semibold text-ink";
+---
+
+<Base
+  title={`${en.title} — Eliezer Meza`}
+  description={en.resultHeadline}
+  canonicalUrl={canonicalUrl}
+  jsonLd={jsonLd}
+>
+  <Header />
+  <main id="main-content">
+    <!-- Encabezado -->
+    <header class="max-w-base mx-auto px-6 py-16 grid md:grid-cols-2 gap-8">
+      <div>
+        <div class="mb-4">
+          <span
+            class={`inline-block text-xs font-mono px-2.5 py-0.5 border ${meta.className}`}
+            data-i18n={`project.${meta.labelKey}`}
+          >
+            {i18nEn.project[meta.labelKey]}
+          </span>
+        </div>
+
+        <h1
+          class="text-3xl font-bold text-accent leading-tight mb-4"
+          data-bilingual
+          data-content-en={en.title}
+          data-content-es={es.title}
+        >
+          {en.title}
+        </h1>
+        <p
+          class="font-mono text-muted text-sm leading-relaxed"
+          data-bilingual
+          data-content-en={en.resultHeadline}
+          data-content-es={es.resultHeadline}
+        >
+          {en.resultHeadline}
+        </p>
+
+
+        {(preview_url || repo_url) && (
+          <div class="flex gap-2 mt-6">
+            {preview_url && (
+              <a
+                href={preview_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Live preview"
+                class="inline-flex items-center justify-center w-8 h-8 border border-accent/40 bg-accent/8 text-accent hover:bg-accent/15 transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/>
+                  <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+              </a>
+            )}
+            {repo_url && (
+              <a
+                href={repo_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Repository"
+                class="inline-flex items-center justify-center w-8 h-8 border border-line text-ink hover:border-ink/30 transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <p class="text-muted text-sm grid">
+          <span data-i18n="project.clientLabel"
+            >{i18nEn.project.clientLabel}</span
+          >
+
+          <span
+            data-bilingual
+            data-content-en={en.client}
+            data-content-es={es.client}
+            class="text-ink font-mono">{en.client}</span
+          >
+        </p>
+
+        <p class="text-muted text-sm grid">
+          <span data-i18n="project.periodLabel"
+            >{i18nEn.project.periodLabel}</span
+          >
+
+          <span
+            data-bilingual
+            data-content-en={en.period}
+            data-content-es={es.period}
+            class="text-ink font-mono">{en.period}</span
+          >
+        </p>
+
+        <p class="text-muted text-sm grid">
+          <span data-i18n="project.roleLabel">{i18nEn.project.roleLabel}</span>
+
+          <span
+            data-bilingual
+            data-content-en={en.role}
+            data-content-es={es.role}
+            class="text-ink font-mono">{en.role}</span
+          >
+        </p>
+
+        <p class="text-muted text-sm grid">
+          <span>Techstack:</span>
+
+          <span class="font-mono text-ink">
+            {stack.join(" · ")}
+          </span>
+        </p>
+      </div>
+    </header>
+
+    <hr class="bg-line border-0 h-px" />
+
+    <!-- Cuerpo -->
+    {
+      hasExtended ? (
+        <>
+          {(en.context || es.context) && (
+            <section class={sectionClass}>
+              <h2 class={sectionTitleClass} data-i18n="project.sectionContext">
+                {i18nEn.project.sectionContext}
+              </h2>
+              <p
+                data-bilingual
+                data-content-en={en.context ?? ""}
+                data-content-es={es.context ?? ""}
+                class="text-muted leading-relaxed"
+              >
+                {en.context}
+              </p>
+            </section>
+
+            <hr class="bg-line border-0 h-px" />
+          )}
+          {(en.conditions || es.conditions) && (
+            <section class={sectionClass}>
+              <h2
+                class={sectionTitleClass}
+                data-i18n="project.sectionConditions"
+              >
+                {i18nEn.project.sectionConditions}
+              </h2>
+              <p
+                data-bilingual
+                data-content-en={en.conditions ?? ""}
+                data-content-es={es.conditions ?? ""}
+                class="text-muted leading-relaxed"
+              >
+                {en.conditions}
+              </p>
+            </section>
+
+            <hr class="bg-line border-0 h-px" />
+          )}
+          {(en.solution || es.solution) && (
+            <section class={sectionClass}>
+              <h2 class={sectionTitleClass} data-i18n="project.sectionSolution">
+                {i18nEn.project.sectionSolution}
+              </h2>
+              <p
+                data-bilingual
+                data-content-en={en.solution ?? ""}
+                data-content-es={es.solution ?? ""}
+                class="text-muted leading-relaxed"
+              >
+                {en.solution}
+              </p>
+            </section>
+
+            <hr class="bg-line border-0 h-px" />
+          )}
+          {(en.tools?.length || es.tools?.length) && (
+            <section class={sectionClass}>
+              <h2 class={sectionTitleClass} data-i18n="project.sectionTools">
+                {i18nEn.project.sectionTools}
+              </h2>
+              <dl
+                data-bilingual-tools
+                data-content-en={JSON.stringify(en.tools ?? [])}
+                data-content-es={JSON.stringify(es.tools ?? [])}
+              >
+                {(en.tools ?? []).map((t) => (
+                  <>
+                    <dt>{t.name}</dt>
+                    <dd>{t.reason}</dd>
+                  </>
+                ))}
+              </dl>
+            </section>
+
+            <hr class="bg-line border-0 h-px" />
+          )}
+          {(en.features?.length || es.features?.length) && (
+            <section class={sectionClass}>
+              <h2 class={sectionTitleClass} data-i18n="project.sectionFeatures">
+                {i18nEn.project.sectionFeatures}
+              </h2>
+              <dl
+                data-bilingual-tools
+                data-content-en={JSON.stringify(en.features ?? [])}
+                data-content-es={JSON.stringify(es.features ?? [])}
+              >
+                {(en.features ?? []).map((f) => (
+                  <>
+                    <dt>{f.name}</dt>
+                    <dd>{f.reason}</dd>
+                  </>
+                ))}
+              </dl>
+            </section>
+
+            <hr class="bg-line border-0 h-px" />
+          )}
+          {(en.results?.length || es.results?.length) && (
+            <section class={sectionClass}>
+              <h2 class={sectionTitleClass} data-i18n="project.sectionResults">
+                {i18nEn.project.sectionResults}
+              </h2>
+              <dl
+                data-bilingual-tools
+                data-content-en={JSON.stringify(en.results ?? [])}
+                data-content-es={JSON.stringify(es.results ?? [])}
+              >
+                {(en.results ?? []).map((r) => (
+                  <>
+                    <dt>{r.name}</dt>
+                    <dd>{r.reason}</dd>
+                  </>
+                ))}
+              </dl>
+            </section>
+          )}
+        </>
+      ) : (
+        <>
+          {(en.summary || es.summary) && (
+            <p
+              data-bilingual
+              data-content-en={en.summary ?? ""}
+              data-content-es={es.summary ?? ""}
+            >
+              {en.summary}
+            </p>
+          )}
+          {(en.highlights?.length || es.highlights?.length) && (
+            <ul
+              data-bilingual-list
+              data-content-en={JSON.stringify(en.highlights ?? [])}
+              data-content-es={JSON.stringify(es.highlights ?? [])}
+            >
+              {(en.highlights ?? []).map((h) => (
+                <li>{h}</li>
+              ))}
+            </ul>
+          )}
+        </>
+      )
+    }
+
+    <!-- Galería -->
+    {
+      gallery?.length ? (
+        <>
+          <hr class="bg-line border-0 h-px" />
+          <section class={sectionClass}>
+            <h2 class={sectionTitleClass} data-i18n="project.sectionGallery">
+              {i18nEn.project.sectionGallery}
+            </h2>
+            <div class="grid gap-4">
+              {gallery.map((src) => (
+                <img
+                  src={src}
+                  alt={`${en.title} screenshot`}
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full border border-line"
+                />
+              ))}
+            </div>
+          </section>
+        </>
+      ) : null
+    }
+
+    <footer class="max-w-base mx-auto px-6 pb-16">
+      <a
+        href="/"
+        class="text-sm text-muted hover:text-accent no-underline hover:underline"
+        data-i18n="project.back">{i18nEn.project.back}</a
+      >
+    </footer>
+  </main>
+  <Footer />
+</Base>

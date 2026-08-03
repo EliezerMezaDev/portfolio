@@ -1,0 +1,61 @@
+---
+interface Props {
+  job: {
+    title: string;
+    period: string;
+    company: string;
+    companyUrl?: string;
+    bullets: string[];
+  };
+  index: number;
+}
+const { job, index } = Astro.props;
+---
+
+<div>
+  <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+    <h3
+      class="font-semibold text-ink"
+      data-i18n={`cv.experience.jobs.${index}.title`}
+    >
+      {job.title}
+    </h3>
+    <span
+      class="font-mono text-xs text-muted"
+      data-i18n={`cv.experience.jobs.${index}.period`}
+    >
+      {job.period}
+    </span>
+  </div>
+  <p class="text-muted text-sm mb-2">
+    {
+      job.companyUrl ? (
+        <a
+          href={job.companyUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-accent hover:underline"
+          title={`${job.company} — Company website`}
+          data-i18n={`cv.experience.jobs.${index}.company`}
+        >
+          {job.company}
+        </a>
+      ) : (
+        <span data-i18n={`cv.experience.jobs.${index}.company`}>
+          {job.company}
+        </span>
+      )
+    }
+  </p>
+  <ul class="text-sm">
+    {
+      job.bullets.map((bullet, j) => (
+        <li class="text-muted">
+          <span data-i18n={`cv.experience.jobs.${index}.bullets.${j}`}>
+            {bullet}
+          </span>
+        </li>
+      ))
+    }
+  </ul>
+</div>

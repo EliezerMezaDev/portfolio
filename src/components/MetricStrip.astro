@@ -1,0 +1,30 @@
+---
+import { frontmatter as en } from "../i18n/en.md";
+---
+
+<div class="border-y border-line py-5 my-12">
+  <div class="max-w-base mx-auto px-5">
+    <div class="flex flex-wrap gap-x-5 gap-y-2">
+      {
+        en.metrics.map((metric, i) => (
+          <>
+            <span
+              class="font-mono text-sm text-ink whitespace-nowrap"
+              data-i18n={`metrics.${i}`}
+            >
+              {metric}
+            </span>
+            {i < en.metrics.length - 1 && (
+              <span
+                class="text-muted select-none hidden sm:inline"
+                aria-hidden="true"
+              >
+                ·
+              </span>
+            )}
+          </>
+        ))
+      }
+    </div>
+  </div>
+</div>

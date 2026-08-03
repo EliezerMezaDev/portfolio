@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "order": {
+      "type": "number"
+    },
+    "stack": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "en": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "client": {
+          "type": "string"
+        },
+        "period": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "resultHeadline": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "highlights": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "title",
+        "client",
+        "period",
+        "role",
+        "resultHeadline",
+        "summary",
+        "highlights"
+      ]
+    },
+    "es": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "client": {
+          "type": "string"
+        },
+        "period": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "resultHeadline": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "highlights": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "title",
+        "client",
+        "period",
+        "role",
+        "resultHeadline",
+        "summary",
+        "highlights"
+      ]
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "order",
+    "stack",
+    "en",
+    "es"
+  ]
+}
