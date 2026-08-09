@@ -1,7 +1,10 @@
 node_modules
 dist
 .unlighthouse
+.env
 
 /_docs
+/graphify-out
 
 notes.md
+new-project-template.md
