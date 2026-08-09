@@ -82,6 +82,23 @@ const ogImageUrl = `${import.meta.env.SITE}/og.png`;
         <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
       )
     }
+
+    {
+      import.meta.env.G_TAG && (
+        <>
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.G_TAG}`}
+          />
+          <script define:vars={{ gaId: import.meta.env.G_TAG }}>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag("js", new Date());
+            gtag("config", gaId);
+          </script>
+        </>
+      )
+    }
   </head>
   <body class="min-h-screen flex flex-col">
     <slot />

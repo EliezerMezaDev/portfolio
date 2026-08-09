@@ -11,7 +11,11 @@ home:
   welcome: "Hola, soy Eliezer,"
   desc1: "Construyo software que mueve dinero, automatiza operaciones y elimina fricciones."
   desc2: "Especializado en **fintech** y sistemas ERP."
-  desc3: "Enfocado en **soluciones eficientes**."
+  desc3: >-
+    Enfocado en **soluciones eficientes**: desde flujos de pago y
+    conciliación hasta herramientas internas que reemplazan planillas
+    manuales. Cómodo llevando una funcionalidad de punta a punta, desde el
+    esquema de base de datos hasta la UI desplegada.
   cta1: "Ver proyectos →"
   cta2: "Curriculum"
   availability: "Disponible para proyectos freelance y roles remotos full-time"
@@ -49,7 +53,9 @@ home:
     experiencia en producción en Vue/Nuxt, Angular y agentes LLM (LangGraph,
     LangChain). No me caso con una herramienta: elijo según el problema, ya
     sean APIs async de alto tráfico, móvil nativo o agentes de IA auditables,
-    y la llevo hasta producción.
+    y la llevo hasta producción. Eso incluye pipelines de CI/CD,
+    configuración de entornos y monitoreo una vez que el código está en
+    producción, no solo la construcción inicial.
   projectsAnchor: "#projects"
 metrics:
   - "5+ años full-stack"
@@ -58,7 +64,10 @@ metrics:
   - "+200 pagos C2P diarios integrados en ERP"
 contact:
   title: "Contacto"
-  desc: "¿Tienes un proyecto en mente o un rol que cubrir? La forma más rápida es por correo."
+  desc: >-
+    ¿Tienes un proyecto en mente o un rol que cubrir? La forma más rápida es
+    por correo. Normalmente respondo en menos de un día y estoy abierto tanto
+    a contratos cortos como a roles full-time de largo plazo.
   cta: "Escríbeme →"
 footer:
   reach: "La forma más rápida de contactarme es por correo."
