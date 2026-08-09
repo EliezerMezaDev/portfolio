@@ -18,12 +18,35 @@ const svgBuffer = Buffer.from(`
 </svg>
 `);
 
+const iconSvg = Buffer.from(`
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#1c1917"/>
+  <text x="256" y="300" font-family="Inter, system-ui, sans-serif" font-size="220" font-weight="700" fill="#f79b23" text-anchor="middle">EM</text>
+</svg>
+`);
+
+const icons = [
+  { name: 'apple-touch-icon.png', size: 180 },
+  { name: 'favicon-32x32.png', size: 32 },
+  { name: 'favicon-16x16.png', size: 16 },
+  { name: 'android-chrome-192x192.png', size: 192 },
+  { name: 'android-chrome-512x512.png', size: 512 },
+];
+
 try {
   await sharp(svgBuffer)
     .png()
     .toFile(join(publicDir, 'og.png'));
   console.log('✓ og.png generated successfully');
+
+  for (const { name, size } of icons) {
+    await sharp(iconSvg)
+      .resize(size, size)
+      .png()
+      .toFile(join(publicDir, name));
+    console.log(`✓ ${name} generated successfully`);
+  }
 } catch (err) {
-  console.error('Failed to generate og.png:', err.message);
+  console.error('Failed to generate images:', err.message);
   process.exit(1);
 }
