@@ -9,13 +9,7 @@ nav:
 home:
   h1: "Ingeniero Full-Stack"
   welcome: "Hola, soy Eliezer,"
-  desc1: "Construyo software que mueve dinero, automatiza operaciones y elimina fricciones."
-  desc2: "Especializado en **fintech** y sistemas ERP."
-  desc3: >-
-    Enfocado en **soluciones eficientes**: desde flujos de pago y
-    conciliación hasta herramientas internas que reemplazan planillas
-    manuales. Cómodo llevando una funcionalidad de punta a punta, desde el
-    esquema de base de datos hasta la UI desplegada.
+  desc1: "Ingeniero de Software Full Stack con 4+ años de experiencia diseñando arquitecturas escalables, aplicaciones web y móviles (Nuxt/Vue, Next.js, Node.js, Flutter). Especializado en Fintech y sistemas ERP, con experiencia construyendo plataformas para instituciones financieras reguladas, sitios públicos orientados a SEO y aplicativos CRM. Enfocado en llevar soluciones de extremo a extremo hasta producción."
   cta1: "Ver proyectos →"
   cta2: "Curriculum"
   availability: "Disponible para proyectos freelance y roles remotos full-time"
@@ -91,55 +85,71 @@ project:
   sectionResults: "Resultados e impacto"
   sectionGallery: "Galería"
 cv:
-  pageTitle: "CV — Eliezer Meza · Ingeniero Full-Stack"
-  pageDesc: "Currículum vitae de Eliezer Meza, ingeniero full-stack especializado en fintech, sistemas ERP y agentes de IA."
-  jobTitle: "Ingeniero Full-Stack"
+  pageTitle: "CV — Eliezer Meza · Ingeniero de Software Full Stack"
+  pageDesc: "Currículum vitae de Eliezer Meza, Ingeniero de Software Full Stack especializado en fintech, sistemas ERP y plataformas web escalables."
+  jobTitle: "Ingeniero de Software Full Stack"
   download: "Descargar PDF"
   summary:
     heading: "Resumen"
     text: >-
-      Ingeniero full-stack con +4 años llevando a producción sistemas fintech,
-      ERP y agentes de IA: wallets cripto con +300 transacciones mensuales,
-      integraciones de pago con +200 operaciones diarias y agentes LLM que
-      automatizan flujos completos de negocio. Stack principal: Python/FastAPI,
-      Next.js, Flutter, Node.js.
+      Ingeniero de Software Full Stack con 4+ años de experiencia diseñando
+      arquitecturas escalables, aplicaciones web y móviles (Nuxt/Vue,
+      Next.js, Node.js, Flutter). Especializado en Fintech y sistemas ERP,
+      con experiencia construyendo plataformas para instituciones
+      financieras reguladas, sitios públicos orientados a SEO y
+      aplicativos CRM. Enfocado en llevar soluciones de extremo a extremo
+      hasta producción.
+  projects:
+    heading: "Proyectos Destacados"
+    items:
+      - title: "Desarrollador Full Stack"
+        period: "Jun 2026 – Ago 2026"
+        company: "Maximiza Casa de Bolsa"
+        companyUrl: "https://eamz.netlify.app/projects/maximiza"
+        bullets:
+          - "Desarrollo e2e de la plataforma de Maximiza Casa de Bolsa: portal web SSR en Nuxt, SEO reconstruido (sitemap, robots, metadatos estructurados) y PWA, más un backoffice CRM sobre un backend compartido en NestJS"
+          - "Aplicativo CRM: ciclo completo de atención de prospectos y registro de usuarios derivados del sitio web, WhatsApp e Instagram, con asignación, seguimiento de estado y RBAC"
+          - "Chatbot multicanal implementado como máquina de estados finitos con integración a la Meta API"
+          - "Stack: Nuxt, NestJS, TypeScript, PostgreSQL, Tailwind CSS"
+      - title: "Desarrollador Full Stack"
+        period: "May 2026 – Actualidad"
+        company: "Kairos CMS"
+        companyUrl: "https://eamz.netlify.app/projects/kairos-cms"
+        bullets:
+          - "Diseño y construcción de un headless CMS que consolida +10 instancias separadas en una sola plataforma para reducir al menos un 40% el costo mensual de infraestructura"
+          - "Arquitectura de 4 capas desacoplada (Nuxt / Express / capa de acceso a datos / PostgreSQL), con jerarquía multiproyecto y aislamiento de datos mediante API keys por proyecto y CORS whitelist"
+          - "Constructor visual de campos con esquemas persistidos en JSONB, editables sin migraciones DDL"
+          - "Kill switch de endpoints con efecto en menos de 2 segundos, cargas de medios directas a Cloudinary sin que el backend almacene binarios, y respaldos globales en segundo plano sin bloquear el event loop"
+          - "Stack: Nuxt, Express, Node.js, TypeScript, PostgreSQL, Cloudinary"
   experience:
     heading: "Experiencia"
     jobs:
-      - title: "Desarrollador Full-Stack (Freelance, Remoto)"
-        period: "Ene 2026 – presente"
-        company: "Betty Travel (cliente confidencial)"
+      - title: "Consultor Full Stack (Remoto, Freelance)"
+        period: "Nov 2024 – presente"
+        company: "Novanet Studio C.A."
+        companyUrl: "https://novanet.studio/"
         bullets:
-          - "Contribuí al desarrollo del **backend principal** del agente IA de viajes corporativos utilizando **FastAPI** con soporte async nativo y WebSocket, con integración a **Sabre REST APIs** (GDS) para cotización BFM, creación de PNR y emisión automática de boletos"
-          - "**Agente IA y RAG:** Contribuí a la construcción del grafo de estados del agente con **LangGraph (LangChain)**, con nodos funcionales de carga de perfil, detección de intención, política y aprobación; participé en la integración de **RAG semántico** con LangChain + pgvector para consulta automática de políticas, conectado a **Claude 3.5 Haiku** vía **AWS Bedrock**"
-          - "Contribuí al **frontend móvil** (iOS/Android) en **Flutter 3.x** con el SDK de livekit_client para voz en tiempo real, y al **panel administrativo** en **Next.js + shadcn/ui**, incluyendo gestión multitenant de empresas, carga de políticas PDF y widgets con Recharts"
-          - "Stack: FastAPI, LangGraph, LangChain, ElevenLabs, Flutter, Next.js, PostgreSQL"
+          - "Lideré el levantamiento de requerimientos y la planificación de +10 plataformas web, definiendo el stack tecnológico (Nuxt/Astro/Svelte) y reduciendo el tiempo de Time-to-Market (TTM) inicial en un 20%"
+          - "Responsable del desarrollo e2e de los proyectos Maximiza Casa de Bolsa y Kairos CMS (ver Proyectos Destacados arriba), abarcando requerimientos, arquitectura, backend, frontend, QA y despliegue"
+          - "Desarrollé e integré módulos de pago C2P en sistemas ERP existentes, logrando procesar +200 transacciones diarias y una mejora de eficiencia del 60% en el cierre de facturas"
+          - "Realicé mantenimiento y actualización de 5+ plataformas web preexistentes, con una reducción del 20% en tiempos de carga y mejora consistente del performance SEO y Core Web Vitals"
+          - "Stack: Nuxt, Vue, Astro, Node.js, NestJS, Strapi, PostgreSQL"
       - title: "Desarrollador Mobile & Frontend (Remoto)"
         period: "May 2025 – Ene 2026"
         company: "Kodea Labs"
         companyUrl: "https://www.kodea.la/"
         bullets:
-          - "**Arquitecté y desarrollé** desde cero wallets de criptomonedas nativas (iOS/Android) en Flutter, implementando flujos de **transacciones cifradas** vía API RESTful con foco en seguridad y disponibilidad del servicio"
-          - "Desarrollé utilizando **GetX** para gestión de estado eficiente y escalable; resolví desafíos de compatibilidad complejos mediante **creación de forks y personalización de paquetes pub.dev** para integrar características avanzadas"
-          - "**Implementé** la interfaz transaccional de una plataforma Fintech en Next.js y React, optimizando el Critical Rendering Path para **reducir los tiempos de carga en un 30%** y facilitar el intercambio fluido de criptomonedas a divisas fiat"
+          - "Arquitecté y desarrollé desde cero wallets de criptomonedas nativas (iOS/Android) utilizando Flutter, implementando flujos de transacciones cifradas vía API RESTful con foco en seguridad y disponibilidad del servicio"
+          - "Resolví desafíos de compatibilidad complejos mediante la creación de forks y la personalización de paquetes de pub.dev, asegurando la integración de características avanzadas"
+          - "Implementé la interfaz transaccional de una plataforma Fintech utilizando Next.js y React, optimizando el Critical Rendering Path para reducir los tiempos de carga en un 30% y facilitando el intercambio fluido de criptomonedas a divisas fiat"
           - "Stack: Flutter, Next.js, React"
-      - title: "Consultor Full-Stack (Remoto)"
-        period: "Nov 2024 – presente"
-        company: "Novanet Studio C.A."
-        companyUrl: "https://novanet.studio/"
-        bullets:
-          - "Realicé mantenimiento y actualización en **+5 plataformas web** existentes, logrando una **reducción directa del 20%** en tiempos de carga y mejoras consistentes de rendimiento SEO"
-          - "**Lideré** el levantamiento de requerimientos y la planificación arquitectónica de **+10 plataformas web nuevas**, definiendo el stack (Nuxt.js/Astro/Svelte) y reduciendo el Time-to-Market en **20%**"
-          - "Desarrollé e integré **módulos de pago C2P** en sistemas ERP existentes, logrando procesar **+200 transacciones diarias** con una **mejora de eficiencia del 60%** en el cierre de facturas"
-          - "Stack: Nuxt.js, Strapi, Astro"
-      - title: "Desarrollador de Software"
+      - title: "Analista de Desarrollo"
         period: "Oct 2021 – Mar 2025"
-        company: "Spartan Techs C.A. — Porlamar, Venezuela"
+        company: "Spartan Techs C.A. — Porlamar, Nueva Esparta"
         companyUrl: "https://www.grupospartan.com/"
         bullets:
-          - "Desarrollé e implementé nuevas **estrategias de gestión de proyectos**, basadas en el análisis de requisitos de **más de 15 clientes**, logrando **optimizar los ciclos de desarrollo en un 20%**"
-          - "Diseñé y desarrollé **aplicaciones empresariales** para **más de 200 usuarios activos**, integrando funciones avanzadas como el control de inventarios y el análisis de costos"
-          - "Contribuí activamente en equipos de **desarrollo Frontend y Backend**, implementando soluciones full-stack que mejoraron la cohesión del código y **redujeron los errores de integración en un 15%**"
+          - "Diseñé y desarrollé aplicaciones empresariales para más de 200 usuarios activos, integrando funciones avanzadas como el control de inventarios y el análisis de costos"
+          - "Contribuí activamente en equipos de desarrollo Frontend y Backend, implementando soluciones full-stack que mejoraron la cohesión del código y redujeron los errores de integración en un 15%"
           - "Stack: Ionic/Angular, React, Next.js"
   education:
     heading: "Educación"
@@ -166,11 +176,11 @@ cv:
     heading: "Habilidades"
     frontend: "Frontend"
     backend: "Backend"
-    ai: "AI / LLM"
+    data: "Datos e infra"
   languages:
     heading: "Idiomas"
     spanish: "Español"
     spanishLevel: "Nativo"
     english: "Inglés"
-    englishLevel: "B1 — Comunicación escrita profesional"
+    englishLevel: "B1 — Competencia profesional para lectura técnica y comunicación por escrito"
 ---

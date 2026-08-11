@@ -9,12 +9,7 @@ nav:
 home:
   h1: "Full-Stack Engineer"
   welcome: "Hi, I'm Eliezer,"
-  desc1: "I build software that moves money, automates operations, and removes friction."
-  desc2: "Specialized in **fintech** and ERP systems."
-  desc3: >-
-    Focused on **efficient solutions**: from payment rails and reconciliation
-    flows to internal tools that replace manual spreadsheets. Comfortable
-    owning a feature end-to-end, from database schema to deployed UI.
+  desc1: "Full Stack Software Engineer with 4+ years of experience designing scalable architectures and web and mobile applications (Nuxt/Vue, Next.js, Node.js, Flutter). Specialized in Fintech and ERP systems, with experience building platforms for regulated financial institutions, SEO-oriented public websites and CRM applications. Focused on taking solutions end to end into production."
   cta1: "View projects →"
   cta2: "Resume"
   availability: "Available for freelance projects and full-time remote roles"
@@ -89,55 +84,70 @@ project:
   sectionResults: "Results & Impact"
   sectionGallery: "Gallery"
 cv:
-  pageTitle: "CV — Eliezer Meza · Full-Stack Engineer"
-  pageDesc: "Curriculum vitae of Eliezer Meza, full-stack engineer specializing in fintech, ERP systems, and AI agents."
-  jobTitle: "Full-Stack Engineer"
+  pageTitle: "CV — Eliezer Meza · Full Stack Software Engineer"
+  pageDesc: "Curriculum vitae of Eliezer Meza, Full Stack Software Engineer specializing in fintech, ERP systems, and scalable web platforms."
+  jobTitle: "Full Stack Software Engineer"
   download: "Download PDF"
   summary:
     heading: "Summary"
     text: >-
-      Full-stack engineer with 4+ years shipping fintech, ERP, and AI-agent
-      systems to production: crypto wallets handling 300+ monthly transactions,
-      payment integrations processing 200+ daily operations, and LLM agents
-      automating end-to-end business workflows. Core stack: Python/FastAPI,
-      Next.js, Flutter, Node.js.
+      Full Stack Software Engineer with 4+ years of experience designing
+      scalable architectures and web and mobile applications (Nuxt/Vue,
+      Next.js, Node.js, Flutter). Specialized in Fintech and ERP systems,
+      with experience building platforms for regulated financial
+      institutions, SEO-oriented public websites and CRM applications.
+      Focused on taking solutions end to end into production.
+  projects:
+    heading: "Featured Projects"
+    items:
+      - title: "Full Stack Developer"
+        period: "Jun 2026 – Aug 2026"
+        company: "Maximiza Casa de Bolsa"
+        companyUrl: "https://eamz.netlify.app/projects/maximiza"
+        bullets:
+          - "End-to-end development of the Maximiza Casa de Bolsa platform: SSR web portal in Nuxt, rebuilt SEO layer (sitemap, robots, structured metadata) and PWA, plus a CRM backoffice on a shared NestJS backend"
+          - "CRM application: full prospect handling cycle and registration of users coming from the website, WhatsApp and Instagram, with assignment, status tracking and RBAC"
+          - "Multichannel chatbot implemented as a finite state machine with Meta API integration"
+          - "Stack: Nuxt, NestJS, TypeScript, PostgreSQL, Tailwind CSS"
+      - title: "Full Stack Developer"
+        period: "May 2026 – Present"
+        company: "Kairos CMS"
+        companyUrl: "https://eamz.netlify.app/projects/kairos-cms"
+        bullets:
+          - "Design and development of a headless CMS consolidating 10+ separate instances into a single platform to cut monthly infrastructure cost by at least 40%"
+          - "Decoupled 4-layer architecture (Nuxt / Express / data access layer / PostgreSQL), with multi-project hierarchy and data isolation through per-project API keys and a CORS whitelist"
+          - "Visual field builder with schemas persisted as JSONB, editable without DDL migrations"
+          - "Endpoint kill switch taking effect in under 2 seconds, direct-to-Cloudinary media uploads so the backend never stores binaries, and global backups running in the background without blocking the event loop"
+          - "Stack: Nuxt, Express, Node.js, TypeScript, PostgreSQL, Cloudinary"
   experience:
     heading: "Experience"
     jobs:
-      - title: "Full-Stack Developer (Freelance, Remote)"
-        period: "Jan 2026 – present"
-        company: "Betty Travel (confidential client)"
+      - title: "Full Stack Consultant (Remote, Freelance)"
+        period: "Nov 2024 – present"
+        company: "Novanet Studio C.A."
+        companyUrl: "https://novanet.studio/"
         bullets:
-          - "Contributed to the development of the **core backend** of the corporate-travel AI agent using **FastAPI** with native async and WebSocket support, integrating **Sabre REST APIs** (GDS) for BFM quoting, PNR creation, and automated ticket issuance"
-          - "**AI Agent & RAG:** Contributed to building the agent's state graph with **LangGraph (LangChain)**, with functional nodes for profile loading, intent detection, policy, and approval; integrated **semantic RAG** with LangChain + pgvector for automatic policy consultation, connected to **Claude 3.5 Haiku** via **AWS Bedrock**"
-          - "Contributed to the **mobile frontend** (iOS/Android) in **Flutter 3.x** using the livekit_client SDK for real-time voice, and to the **admin panel** in **Next.js + shadcn/ui** with multitenant company management, PDF policy upload, and Recharts widgets"
-          - "Stack: FastAPI, LangGraph, LangChain, ElevenLabs, Flutter, Next.js, PostgreSQL"
+          - "Led requirements gathering and planning for 10+ web platforms, defining the tech stack (Nuxt/Astro/Svelte) and reducing initial Time-to-Market (TTM) by 20%"
+          - "Responsible for the end-to-end development of the Maximiza Casa de Bolsa and Kairos CMS projects (see Featured Projects above), covering requirements, architecture, backend, frontend, QA and deployment"
+          - "Built and integrated C2P payment modules into existing ERP systems, processing 200+ daily transactions and improving invoice closing efficiency by 60%"
+          - "Maintained and upgraded 5+ existing web platforms, with a 20% reduction in load times and consistent improvements in SEO performance and Core Web Vitals"
+          - "Stack: Nuxt, Vue, Astro, Node.js, NestJS, Strapi, PostgreSQL"
       - title: "Mobile & Frontend Developer (Remote)"
         period: "May 2025 – Jan 2026"
         company: "Kodea Labs"
         companyUrl: "https://www.kodea.la/"
         bullets:
-          - "**Architected and developed** native cryptocurrency wallets (iOS/Android) from scratch in Flutter, implementing **encrypted transaction flows** via RESTful API with a focus on security and service availability"
-          - "Developed using **GetX** for efficient and scalable state management; resolved complex compatibility challenges by **forking and customizing pub.dev packages** to integrate advanced features"
-          - "**Implemented** the transactional interface of a Fintech platform in Next.js and React, optimizing the Critical Rendering Path to **reduce load times by 30%** and enabling smooth cryptocurrency-to-fiat exchange"
+          - "Architected and built native crypto wallets (iOS/Android) from scratch using Flutter, implementing encrypted transaction flows over a RESTful API with a focus on security and service availability"
+          - "Solved complex compatibility challenges by creating forks and customizing pub.dev packages, enabling the integration of advanced features"
+          - "Implemented the transactional interface of a Fintech platform using Next.js and React, optimizing the Critical Rendering Path to reduce load times by 30% and enabling smooth crypto-to-fiat exchange"
           - "Stack: Flutter, Next.js, React"
-      - title: "Full-Stack Consultant (Remote)"
-        period: "Nov 2024 – present"
-        company: "Novanet Studio C.A."
-        companyUrl: "https://novanet.studio/"
-        bullets:
-          - "Maintained and updated **5+ existing web platforms**, achieving a **direct 20% reduction in load times** and consistent SEO performance improvements"
-          - "**Led** requirements gathering and architectural planning for **10+ new web platforms**, defining the stack (Nuxt.js/Astro/Svelte) and reducing Time-to-Market by **20%**"
-          - "Developed and integrated **C2P payment modules** into existing ERP systems, processing **200+ daily transactions** with a **60% efficiency improvement** in invoice closing"
-          - "Stack: Nuxt.js, Strapi, Astro"
-      - title: "Software Developer"
+      - title: "Development Analyst"
         period: "Oct 2021 – Mar 2025"
-        company: "Spartan Techs C.A. — Porlamar, Venezuela"
+        company: "Spartan Techs C.A. — Porlamar, Nueva Esparta"
         companyUrl: "https://www.grupospartan.com/"
         bullets:
-          - "Developed and implemented new **project-management strategies**, based on requirements from **15+ clients**, **optimizing development cycles by 20%**"
-          - "Designed and developed **business applications** for **200+ active users**, integrating advanced features such as inventory control and cost analysis"
-          - "Actively contributed to **Frontend and Backend teams**, implementing full-stack solutions that improved code cohesion and **reduced integration errors by 15%**"
+          - "Designed and built enterprise applications for 200+ active users, integrating advanced features such as inventory control and cost analysis"
+          - "Contributed actively to Frontend and Backend development teams, delivering full-stack solutions that improved code cohesion and reduced integration errors by 15%"
           - "Stack: Ionic/Angular, React, Next.js"
   education:
     heading: "Education"
@@ -164,11 +174,11 @@ cv:
     heading: "Skills"
     frontend: "Frontend"
     backend: "Backend"
-    ai: "AI / LLM"
+    data: "Data & infra"
   languages:
     heading: "Languages"
     spanish: "Spanish"
     spanishLevel: "Native"
     english: "English"
-    englishLevel: "B1 — Professional written communication"
+    englishLevel: "B1 — Professional proficiency for technical reading and written communication"
 ---

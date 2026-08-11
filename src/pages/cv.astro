@@ -7,9 +7,9 @@ import SkillItem from "../modules/cv/components/SkillItem.astro";
 import { frontmatter as en } from "../i18n/en.md";
 
 const stackItems = {
-  frontend: ["JS/TS (ES6+)", "React", "Next.js", "Nuxt", "Astro", "SCSS", "Tailwind", "Flutter", "Ionic"],
-  backend: ["Python", "FastAPI", "Node.js", "Bun", "Strapi", "PostgreSQL", "Redis", "Celery"],
-  ai: ["LangGraph", "LangChain", "AWS Bedrock", "LiveKit Agents", "Deepgram", "ElevenLabs", "pgvector", "RAG"],
+  frontend: ["JS/TS (ES6+)", "Vue", "Nuxt", "React", "Next.js", "Astro", "SCSS", "Tailwind", "Flutter", "Ionic"],
+  backend: ["Node.js", "NestJS", "Express", "Python", "FastAPI", "Bun.js", "Strapi"],
+  data: ["PostgreSQL", "Redis", "Cloudinary", "Netlify", "Heroku", "CI/CD"],
 };
 ---
 
@@ -43,9 +43,10 @@ const stackItems = {
           </a>
         </div>
         <a
+          id="cv-download"
           class="primary-btn"
           data-i18n="cv.download"
-          href={"/docs/cv_es.pdf"}
+          href="/docs/eliezermeza_cv_en.pdf"
           target="_blank"
           rel="noopener noreferrer"
           download
@@ -67,6 +68,23 @@ const stackItems = {
         <p class="text-ink leading-relaxed" data-i18n="cv.summary.text">
           {en.cv.summary.text}
         </p>
+      </section>
+
+      <!-- Featured Projects -->
+      <section aria-labelledby="projects-heading">
+        <h2
+          id="projects-heading"
+          class="text-xs font-semibold uppercase tracking-widest text-muted mb-6"
+          data-i18n="cv.projects.heading"
+        >
+          {en.cv.projects.heading}
+        </h2>
+
+        <div class="space-y-8">
+          {en.cv.projects.items.map((project, i) => (
+            <ExperienceItem job={project} index={i} pathPrefix="cv.projects.items" />
+          ))}
+        </div>
       </section>
 
       <!-- Experience -->
@@ -165,7 +183,7 @@ const stackItems = {
         <div class="grid gap-4 sm:grid-cols-3">
           <SkillItem label="Frontend" items={stackItems.frontend} />
           <SkillItem label="Backend" items={stackItems.backend} />
-          <SkillItem label="AI / LLM" items={stackItems.ai} />
+          <SkillItem label={en.cv.skills.data} i18nKey="cv.skills.data" items={stackItems.data} />
         </div>
       </section>
 
@@ -214,3 +232,16 @@ const stackItems = {
 
   <Footer />
 </Base>
+
+<script>
+  function setCvLang() {
+    const link = document.getElementById("cv-download");
+    const lang = document.documentElement.getAttribute("data-lang") === "es" ? "es" : "en";
+    link?.setAttribute("href", `/docs/eliezermeza_cv_${lang}.pdf`);
+  }
+  setCvLang();
+  document.addEventListener("astro:after-swap", setCvLang);
+  new MutationObserver(setCvLang).observe(document.documentElement, {
+    attributeFilter: ["data-lang"],
+  });
+</script>

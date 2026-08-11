@@ -1,0 +1,31 @@
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"Generated 2ms","label":"types","level":"info"}
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"Syncing content","label":"content","level":"info"}
+{"message":"Astro config changed","label":"content","level":"info"}
+{"message":"Clearing content store","label":"content","level":"info"}
+[31m[UnknownFilesystemError][39m 
+  [1mHint:[22m
+[33m    It can be caused by many things, eg. missing permissions or a file not existing we attempt to read. Check the error cause for more details.[39m
+  [1mError reference:[22m
+    [36m[4mhttps://docs.astro.build/en/reference/errors/unknown-filesystem-error/[24m[39m
+  [1mLocation:[22m
+    [4mE:\Dev\projects\eamz\portfolio\node_modules\astro\dist\content\mutable-data-store.js:127:13[24m
+  [1mStack trace:[22m
+[2m    at MutableDataStore.writeAssetImports (file:///E:/Dev/projects/eamz/portfolio/node_modules/astro/dist/content/mutable-data-store.js:127:13)
+    at async run (file:///E:/Dev/projects/eamz/portfolio/node_modules/p-queue/dist/index.js:400:36)[22m
+  [1mCaused by:[22m
+[2m  EPERM: operation not permitted, rename 'E:\Dev\projects\eamz\portfolio\.astro\conte[31m[UnknownFilesystemError][39m 
+  [1mHint:[22m
+[33m    It can be caused by many things, eg. missing permissions or a file not existing we attempt to read. Che{"message":" astro  v7.1.6 ready in 12092 ms\n┃ Local    http://localhost:4325/\n┃ Network  use --host to expose","label":"SKIP_FORMAT","level":"info"}
+{"message":"watching for file changes...","label":null,"level":"info"}
+{"message":"[optimizer] bundling dependencies...","label":"vite","level":"info"}
+{"message":"[200] /cv 45ms","label":null,"level":"info"}
+{"message":"[200] / 280ms","label":null,"level":"info"}
+st/content/mutable-data-store.js:127:13)
+    at async run (file:///E:/Dev/projects/eamz/portfolio/node_modules/p-queue/dist/index.js:400:36)[22m
+  [1mCaused by:[22m
+[2m  ENOENT: no such file or directory, rename 'E:\Dev\projects\eamz\portfolio\.astro\content-assets.mjs.tmp' -> 'E:\Dev\projects\eamz\portfolio\.astro\content-assets.mjs'
+    at async Object.rename (node:internal/fs/promises:782:10)
+    at async MutableDataStore.writeAssetImports (file:///E:/Dev/projects/eamz/portfolio/node_modules/astro/dist/content/mutable-data-store.js:125:7)
+    at async run (file:///E:/Dev/projects/eamz/portfolio/node_modules/p-queue/dist/index.js:400:36)[22m

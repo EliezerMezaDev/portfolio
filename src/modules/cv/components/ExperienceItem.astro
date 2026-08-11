@@ -8,21 +8,22 @@ interface Props {
     bullets: string[];
   };
   index: number;
+  pathPrefix?: string;
 }
-const { job, index } = Astro.props;
+const { job, index, pathPrefix = "cv.experience.jobs" } = Astro.props;
 ---
 
 <div>
   <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
     <h3
       class="font-semibold text-ink"
-      data-i18n={`cv.experience.jobs.${index}.title`}
+      data-i18n={`${pathPrefix}.${index}.title`}
     >
       {job.title}
     </h3>
     <span
       class="font-mono text-xs text-muted"
-      data-i18n={`cv.experience.jobs.${index}.period`}
+      data-i18n={`${pathPrefix}.${index}.period`}
     >
       {job.period}
     </span>
@@ -36,12 +37,12 @@ const { job, index } = Astro.props;
           rel="noopener noreferrer"
           class="hover:text-accent hover:underline"
           title={`${job.company} — Company website`}
-          data-i18n={`cv.experience.jobs.${index}.company`}
+          data-i18n={`${pathPrefix}.${index}.company`}
         >
           {job.company}
         </a>
       ) : (
-        <span data-i18n={`cv.experience.jobs.${index}.company`}>
+        <span data-i18n={`${pathPrefix}.${index}.company`}>
           {job.company}
         </span>
       )
@@ -51,7 +52,7 @@ const { job, index } = Astro.props;
     {
       job.bullets.map((bullet, j) => (
         <li class="text-muted">
-          <span data-i18n={`cv.experience.jobs.${index}.bullets.${j}`}>
+          <span data-i18n={`${pathPrefix}.${index}.bullets.${j}`}>
             {bullet}
           </span>
         </li>
